@@ -6,6 +6,343 @@
         <description>Recent content in 网安笔记 on Ranch&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Ranch&#39;s Blog</copyright><atom:link href="http://ranch007.github.io/categories/%E7%BD%91%E5%AE%89%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>Ranch&#39;s Blog</copyright><atom:link href="http://ranch007.github.io/categories/%E7%BD%91%E5%AE%89%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Win11使用JEnv管理多版本jdk</title>
+        <link>http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/</link>
+        <pubDate>Tue, 22 Oct 2024 19:37:09 +0800</pubDate>
+        
+        <guid>http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;hr&gt;
+&lt;h2 id=&#34;一jenv-介绍&#34;&gt;一、JEnv 介绍
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;【&lt;a class=&#34;link&#34; href=&#34;https://github.com/FelixSelter/JEnv-for-Windows&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JEnv-for-Windows&lt;/a&gt;】是一个专为Windows系统设计的开源工具，由FelixSelter开发，其核心功能是让开发者能够轻松地在不同版本的Java开发工具包（JDK）之间进行切换。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;关键技术和框架&#34;&gt;关键技术和框架
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;批处理脚本&lt;/strong&gt;：用于创建快捷的Java版本切换逻辑；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PowerShell脚本&lt;/strong&gt;：用于环境变量的动态管理，兼容性增强，以及更高级的操作；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无需额外依赖&lt;/strong&gt;：直接通过环境变量和脚本操作来实现JDK版本的管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;这是如何运作的呢&#34;&gt;这是如何运作的呢？
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009233551384.png&#34;
+	width=&#34;1512&#34;
+	height=&#34;567&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009233551384_hu2380283802084329253.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009233551384_hu6341968114145056990.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;JEnv运作原理&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;266&#34;
+		data-flex-basis=&#34;640px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二准备工作和详细安装步骤&#34;&gt;二、准备工作和详细安装步骤
+&lt;/h2&gt;&lt;h3 id=&#34;步骤一下载jdk并配置&#34;&gt;步骤一：下载JDK并配置
+&lt;/h3&gt;&lt;h4 id=&#34;21安装-jdk&#34;&gt;2.1、安装 JDK
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;jdk-1.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;正常一步一步安装【&lt;a class=&#34;link&#34; href=&#34;https://www.oracle.com/sg/java/technologies/downloads/#license-lightbox&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jdk-8u421-windows-x64.exe&lt;/a&gt;】&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009224210707.png&#34;
+	width=&#34;1112&#34;
+	height=&#34;76&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009224210707_hu8926614043901827827.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009224210707_hu1449236340368680192.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;jdk-8u421-windows-x64.exe&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1463&#34;
+		data-flex-basis=&#34;3511px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jdk-xxx&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将其他版本jdk的.zip压缩包解压到对应文件夹&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009224714318.png&#34;
+	width=&#34;678&#34;
+	height=&#34;248&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009224714318_hu4623325529797259273.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009224714318_hu8123448303924493817.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;jdk&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;656px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最终目录结构可参考：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225152579.png&#34;
+	width=&#34;250&#34;
+	height=&#34;137&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225152579_hu14140744136932058079.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225152579_hu4355012969982278878.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;本机java环境变量目录&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;437px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;22配置环境变量&#34;&gt;2.2、配置环境变量
+&lt;/h4&gt;&lt;p&gt;①新建系统变量JAVA_HOME，路径为jdk8路径&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225443108.png&#34;
+	width=&#34;651&#34;
+	height=&#34;133&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225443108_hu12485198127329721076.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225443108_hu2530805348119053924.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;新建JAVA_HOME变量&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;489&#34;
+		data-flex-basis=&#34;1174px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;②新建系统变量CLASSPATH，指定类搜索路径&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225506522.png&#34;
+	width=&#34;651&#34;
+	height=&#34;133&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225506522_hu16854659262877946019.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225506522_hu4115166787370112875.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;新建CLASSPATH变量&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;489&#34;
+		data-flex-basis=&#34;1174px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;③系统变量Path中添加对应路径&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241010201303811.png&#34;
+	width=&#34;390&#34;
+	height=&#34;44&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241010201303811_hu8393731961973066549.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241010201303811_hu8885581109989881894.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;添加path变量&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;886&#34;
+		data-flex-basis=&#34;2127px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;步骤二jenv-for-windows项目获取&#34;&gt;步骤二：JEnv-for-Windows项目获取
+&lt;/h3&gt;&lt;p&gt;从GitHub克隆该仓库到本地对应文件夹&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/FelixSelter/JEnv-for-Windows.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;步骤三jenv环境准备&#34;&gt;步骤三：JEnv环境准备
+&lt;/h3&gt;&lt;h4 id=&#34;23删除旧的java_home&#34;&gt;2.3、删除旧的JAVA_HOME
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009231943617.png&#34;
+	width=&#34;419&#34;
+	height=&#34;51&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009231943617_hu3970047310223134719.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009231943617_hu7273354928221250891.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;删除旧的JAVA_HOME&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;821&#34;
+		data-flex-basis=&#34;1971px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;24添加jenv到系统路径&#34;&gt;2.4、添加JEnv到系统路径
+&lt;/h4&gt;&lt;p&gt;将刚克隆的项目路径添加到系统的环境变量Path中，确保可以从任何地方调用jenv.bat脚本。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022195723635.png&#34;
+	width=&#34;625&#34;
+	height=&#34;118&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022195723635_hu13369667802096367694.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022195723635_hu4543461869216329047.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;添加JEnv到path&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;529&#34;
+		data-flex-basis=&#34;1271px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;步骤四初始化与配置&#34;&gt;步骤四：初始化与配置
+&lt;/h3&gt;&lt;h4 id=&#34;25首次运行jenv&#34;&gt;2.5、首次运行JEnv
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jenv -help
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022200117030.png&#34;
+	width=&#34;1103&#34;
+	height=&#34;277&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022200117030_hu2620873702362462739.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022200117030_hu12685559558488566111.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;JEnv的帮助指南&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;398&#34;
+		data-flex-basis=&#34;955px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;26添加java环境&#34;&gt;2.6、添加JAVA环境
+&lt;/h4&gt;&lt;p&gt;接下来，将其他版本jdk添加到JEnv管理中&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jenv add jkd8 C:\Environment\Java\jdk-1.8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jenv add jdk17 C:\Environment\Java\jdk-17.0.12
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;步骤五验证&#34;&gt;步骤五：验证
+&lt;/h4&gt;&lt;p&gt;列出jenv管理的所有jdk版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jenv list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009233230404.png&#34;
+	width=&#34;843&#34;
+	height=&#34;221&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009233230404_hu7464391200919496810.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009233230404_hu13981362215070504923.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;加入的java环境&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;381&#34;
+		data-flex-basis=&#34;915px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;用命令切换jdk版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jenv use {name}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022200741127.png&#34;
+	width=&#34;999&#34;
+	height=&#34;248&#34;
+	srcset=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022200741127_hu15445529797333111881.png 480w, http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022200741127_hu17694481035502431380.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;jdk8切换到jdk17&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;402&#34;
+		data-flex-basis=&#34;966px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;三日常操作及使用方法&#34;&gt;三、日常操作及使用方法
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;添加新的Java环境（需要绝对路径）&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv add&lt;code&gt;&amp;lt;name&amp;gt; &amp;lt;path&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv add jdk15 D:\Programme\Java\jdk-15.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;更改当前会话的 java 版本&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv use&lt;code&gt;&amp;lt;name&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv use jdk15&lt;/code&gt;&lt;br&gt;
+脚本编写的环境变量：&lt;br&gt;
+&amp;mdash;PowerShell: &lt;code&gt;$ENV:JENVUSE=&amp;quot;jdk17&amp;quot;&lt;/code&gt;&lt;br&gt;
+&amp;mdash;CMD/BATCH:&lt;code&gt;set &amp;quot;JENVUSE=jdk17&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;清除当前会话的 java 版本&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv use remove&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv use remove&lt;/code&gt;&lt;br&gt;
+用于脚本编写的环境变量：&lt;br&gt;
+&amp;mdash;PowerShell: &lt;code&gt;$ENV:JENVUSE=$null&lt;/code&gt;&lt;br&gt;
+&amp;mdash;CMD/BATCH:&lt;code&gt;set &amp;quot;JENVUSE=&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;全局更改您的 java 版本&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv change&lt;code&gt;&amp;lt;name&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv change jdk15&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;始终在此文件夹&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv local&lt;code&gt;&amp;lt;name&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+中使用此 java 版本 示例：&lt;code&gt;jenv local jdk15&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;清除此文件夹的 java 版本&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv local remove&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv local remove&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;列出所有 Java 环境&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv list&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv list&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;从 JEnv 列表中删除现有的 JDK&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv remove&lt;code&gt;&amp;lt;name&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv remove jdk15&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;允许使用位于 java 目录&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv link&lt;code&gt;&amp;lt;Executable name&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+中的 javac、javaw 或其他可执行文件 示例：&lt;code&gt;jenv link javac&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;卸载 jenv 并自动恢复您选择的 Java 版本&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv uninstall&lt;code&gt;&amp;lt;name&amp;gt;&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv uninstall jdk17&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;自动搜索要添加的 java 版本&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;jenv autoscan [&amp;ndash;yes|-y]&lt;code&gt;?&amp;lt;path&amp;gt;?&lt;/code&gt;&lt;/em&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv autoscan &amp;quot;C:\Program Files\Java&amp;quot;&lt;/code&gt;&lt;br&gt;
+示例：&lt;code&gt;jenv autoscan&lt;/code&gt;// 将搜索整个系统 示例：&lt;code&gt;jenv autoscan -y &amp;quot;C:\Program Files\Java&amp;quot;&lt;/code&gt;// 将接受默认值&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录
+&lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/gitblog_07878/article/details/142224949?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-4-142224949-blog-132979387.235%5Ev43%5Epc_blog_bottom_relevance_base9&amp;amp;spm=1001.2101.3001.4242.3&amp;amp;utm_relevant_index=7&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JEnv-for-Windows 安装与配置完全指南&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息
+&lt;/h3&gt;&lt;p&gt;本文原载于 &lt;a class=&#34;link&#34; href=&#34;https://ranch007.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ranch&amp;rsquo;s Blog&lt;/a&gt;，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。&lt;/p&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>
