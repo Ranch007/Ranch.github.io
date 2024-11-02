@@ -14,17 +14,17 @@
         <guid>http://ranch007.github.io/p/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84wsl2%E6%95%99%E7%A8%8Bwindows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</guid>
         <description>&lt;img src="http://ranch007.github.io/p/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84wsl2%E6%95%99%E7%A8%8Bwindows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F/wsl.png" alt="Featured image of post 超详细的wsl2教程：windows上的linux子系统" /&gt;&lt;hr&gt;
 &lt;h2 id=&#34;前置条件&#34;&gt;前置条件
-&lt;/h2&gt;&lt;h3 id=&#34;11cpu-虚拟化&#34;&gt;1.1、CPU 虚拟化
+&lt;/h2&gt;&lt;h3 id=&#34;cpu-虚拟化&#34;&gt;CPU 虚拟化
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;修改BIOS设置（VMX/AMD-v）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;12windows-功能&#34;&gt;1.2、windows 功能
+&lt;h3 id=&#34;windows-功能&#34;&gt;windows 功能
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;适用于Linux的windows子系统&lt;/li&gt;
 &lt;li&gt;虚拟机平台&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装
-&lt;/h2&gt;&lt;h3 id=&#34;21默认-ubuntu-发行版&#34;&gt;2.1、默认 ubuntu 发行版
+&lt;/h2&gt;&lt;h3 id=&#34;默认-ubuntu-发行版&#34;&gt;默认 ubuntu 发行版
 &lt;/h3&gt;&lt;p&gt;管理员权限打开 cmd&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -34,7 +34,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --install kali-linux --web-download
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;22查看在线发行版&#34;&gt;2.2、查看在线发行版
+&lt;/div&gt;&lt;h3 id=&#34;查看在线发行版&#34;&gt;查看在线发行版
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -43,7 +43,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --list --online
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;23查看安装的子系统&#34;&gt;2.3、查看安装的子系统
+&lt;/div&gt;&lt;h3 id=&#34;查看安装的子系统&#34;&gt;查看安装的子系统
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -68,7 +68,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;使用&#34;&gt;使用
-&lt;/h2&gt;&lt;h3 id=&#34;31切换默认子系统&#34;&gt;3.1、切换默认子系统
+&lt;/h2&gt;&lt;h3 id=&#34;切换默认子系统&#34;&gt;切换默认子系统
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -77,7 +77,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --set-default xxx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;32启动指定的子系统&#34;&gt;3.2、启动指定的子系统
+&lt;/div&gt;&lt;h3 id=&#34;启动指定的子系统&#34;&gt;启动指定的子系统
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -86,7 +86,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl -d kali-linux
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;33卸载&#34;&gt;3.3、卸载
+&lt;/div&gt;&lt;h3 id=&#34;卸载&#34;&gt;卸载
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -95,7 +95,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --unregister kali-linux
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;34备份&#34;&gt;3.4、备份
+&lt;/div&gt;&lt;h3 id=&#34;备份&#34;&gt;备份
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -113,10 +113,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;kali-打开桌面窗口&#34;&gt;kali 打开桌面窗口
-&lt;/h2&gt;&lt;h3 id=&#34;41wsl2-黑科技&#34;&gt;4.1、wsl2 黑科技
-&lt;/h3&gt;&lt;h4 id=&#34;411wslg&#34;&gt;4.1.1、WSLg
+&lt;/h2&gt;&lt;h3 id=&#34;wsl2-黑科技&#34;&gt;wsl2 黑科技
+&lt;/h3&gt;&lt;h4 id=&#34;wslg&#34;&gt;WSLg
 &lt;/h4&gt;&lt;p&gt;允许 Linux 里面带有UI的应用程序，直接以 Windows 窗口的形式打开&lt;/p&gt;
-&lt;h4 id=&#34;412显卡直通&#34;&gt;4.1.2、显卡直通
+&lt;h4 id=&#34;显卡直通&#34;&gt;显卡直通
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -141,7 +141,7 @@
 		data-flex-basis=&#34;509px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;413镜像网络模式&#34;&gt;4.1.3、镜像网络模式
+&lt;h4 id=&#34;镜像网络模式&#34;&gt;镜像网络模式
 &lt;/h4&gt;&lt;p&gt;在 &lt;code&gt;C:\Users\xxx&lt;/code&gt; 下面创建 &lt;code&gt;.wslconfig&lt;/code&gt; 文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -154,13 +154,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;然后保存，使用 &lt;code&gt;wsl --shutdown&lt;/code&gt; 关闭虚拟机，等 8 秒。&lt;/p&gt;
-&lt;h3 id=&#34;42kali-安装-win-kex&#34;&gt;4.2、kali 安装 Win-Kex
+&lt;h3 id=&#34;kali-安装-win-kex&#34;&gt;kali 安装 Win-Kex
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;参考官方文档：【&lt;a class=&#34;link&#34; href=&#34;https://www.kali.org/docs/wsl/win-kex/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Win-Kex为Kali Linux提供GUI桌面体验&lt;/a&gt;】&lt;/p&gt;
 &lt;p&gt;win-kex支持以下三种模式&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&#34;421窗口模式&#34;&gt;4.2.1、窗口模式
+&lt;h4 id=&#34;窗口模式&#34;&gt;窗口模式
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;要在支持声音的 Window 模式下启动 Win-KeX，请运行以下任一命令：&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -170,7 +170,7 @@
 &lt;/ul&gt;
 &lt;p&gt;有关更多信息，请参阅【 &lt;a class=&#34;link&#34; href=&#34;https://www.kali.org/docs/wsl/win-kex-win/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Win-KeX 窗口模式使用文档&lt;/a&gt;】。&lt;/p&gt;
-&lt;h4 id=&#34;422增强的会话模式&#34;&gt;4.2.2、增强的会话模式
+&lt;h4 id=&#34;增强的会话模式&#34;&gt;增强的会话模式
 &lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;要在具有声音支持和 ARM 解决方法的增强会话模式下启动 Win-KeX&lt;/p&gt;
 &lt;p&gt;请运行以下任一命令：&lt;/p&gt;
@@ -181,7 +181,7 @@
 &lt;/ul&gt;
 &lt;p&gt;有关更多信息，请参阅【 &lt;a class=&#34;link&#34; href=&#34;https://www.kali.org/docs/wsl/win-kex-esm/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Win-KeX 增强型会话模式使用文档&lt;/a&gt;】。&lt;/p&gt;
-&lt;h4 id=&#34;423无缝模式&#34;&gt;4.2.3、无缝模式
+&lt;h4 id=&#34;无缝模式&#34;&gt;无缝模式
 &lt;/h4&gt;&lt;p&gt;使用无缝模式（win-kex SL），请在WSL设置里，将网络模式更改为&lt;code&gt;NAT&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84wsl2%E6%95%99%E7%A8%8Bwindows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F/assets/file-20241012192216372.png&#34;
 	width=&#34;1132&#34;
@@ -265,7 +265,7 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;准备工作和详细安装步骤&#34;&gt;准备工作和详细安装步骤
 &lt;/h2&gt;&lt;h3 id=&#34;步骤一下载jdk并配置&#34;&gt;步骤一：下载JDK并配置
-&lt;/h3&gt;&lt;h4 id=&#34;21安装-jdk&#34;&gt;2.1、安装 JDK
+&lt;/h3&gt;&lt;h4 id=&#34;安装-jdk&#34;&gt;安装 JDK
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;jdk-1.8&lt;/li&gt;
 &lt;/ul&gt;
@@ -320,7 +320,7 @@
 		data-flex-basis=&#34;437px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;22配置环境变量&#34;&gt;2.2、配置环境变量
+&lt;h4 id=&#34;配置环境变量&#34;&gt;配置环境变量
 &lt;/h4&gt;&lt;p&gt;①新建系统变量JAVA_HOME，路径为jdk8路径&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009225443108.png&#34;
 	width=&#34;651&#34;
@@ -377,7 +377,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;步骤三jenv环境准备&#34;&gt;步骤三：JEnv环境准备
-&lt;/h3&gt;&lt;h4 id=&#34;23删除旧的java_home&#34;&gt;2.3、删除旧的JAVA_HOME
+&lt;/h3&gt;&lt;h4 id=&#34;删除旧的java_home&#34;&gt;删除旧的JAVA_HOME
 &lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/file-20241009231943617.png&#34;
 	width=&#34;419&#34;
 	height=&#34;51&#34;
@@ -392,7 +392,7 @@
 		data-flex-basis=&#34;1971px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;24添加jenv到系统路径&#34;&gt;2.4、添加JEnv到系统路径
+&lt;h4 id=&#34;添加jenv到系统路径&#34;&gt;添加JEnv到系统路径
 &lt;/h4&gt;&lt;p&gt;将刚克隆的项目路径添加到系统的环境变量Path中，确保可以从任何地方调用jenv.bat脚本。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/assets/image-20241022195723635.png&#34;
 	width=&#34;625&#34;
@@ -409,7 +409,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;步骤四初始化与配置&#34;&gt;步骤四：初始化与配置
-&lt;/h3&gt;&lt;h4 id=&#34;25首次运行jenv&#34;&gt;2.5、首次运行JEnv
+&lt;/h3&gt;&lt;h4 id=&#34;首次运行jenv&#34;&gt;首次运行JEnv
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -432,7 +432,7 @@
 		data-flex-basis=&#34;955px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;26添加java环境&#34;&gt;2.6、添加JAVA环境
+&lt;h4 id=&#34;添加java环境&#34;&gt;添加JAVA环境
 &lt;/h4&gt;&lt;p&gt;接下来，将其他版本jdk添加到JEnv管理中&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -654,7 +654,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;基础配置&#34;&gt;基础配置
-&lt;/h2&gt;&lt;h3 id=&#34;21打开hugoyaml&#34;&gt;2.1、打开&lt;code&gt;hugo.yaml&lt;/code&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;打开hugoyaml&#34;&gt;打开&lt;code&gt;hugo.yaml&lt;/code&gt;
 &lt;/h3&gt;&lt;p&gt;​	本地调试的时候&lt;code&gt;baseurl&lt;/code&gt;可以设置为&lt;code&gt;http://localhost:1313&lt;/code&gt;。调试完推送到GitHub上，记得改为网站根目录，有疑问请参考【&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/methods/site/baseurl/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;这里&lt;/a&gt;】。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241016114218549.png&#34;
@@ -663,7 +663,7 @@
 	srcset=&#34;http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241016114218549_hu6894575866974441816.png 480w, http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241016114218549_hu15681440047585224711.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241016114218549&#34;
+		alt=&#34;个性化基础配置&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -671,7 +671,7 @@
 		data-flex-basis=&#34;366px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;22网站-icon时间格式博客头像&#34;&gt;2.2、网站 &lt;code&gt;icon&lt;/code&gt;、时间格式、博客头像
+&lt;h3 id=&#34;网站-icon时间格式博客头像&#34;&gt;网站 &lt;code&gt;icon&lt;/code&gt;、时间格式、博客头像
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;网站icon存储路径：&lt;code&gt;/static/favcion.ico&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Go语言时间格式：&lt;/li&gt;
@@ -692,7 +692,7 @@
 		data-flex-basis=&#34;356px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;23license和留言板功能&#34;&gt;2.3、&lt;code&gt;License&lt;/code&gt;和留言板功能
+&lt;h3 id=&#34;license和留言板功能&#34;&gt;&lt;code&gt;License&lt;/code&gt;和留言板功能
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;license&lt;/code&gt;：做好公共版权许可协议声明&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;comments&lt;/code&gt;：进入【&lt;a class=&#34;link&#34; href=&#34;https://giscus.app/zh-CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -753,7 +753,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;            &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;zh-CN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;24社交功能&#34;&gt;2.4、社交功能
+&lt;/div&gt;&lt;h3 id=&#34;社交功能&#34;&gt;社交功能
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;加入个人社交平台的链接&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;icon&lt;/code&gt;路径：博客主目录的&lt;code&gt;/assets/icons&lt;/code&gt;下，所有&lt;code&gt;icon&lt;/code&gt;都在这里，都是&lt;code&gt;svg&lt;/code&gt;文件。&lt;/li&gt;
@@ -773,7 +773,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;主题魔改&#34;&gt;主题魔改
-&lt;/h2&gt;&lt;h3 id=&#34;31-整体布局&#34;&gt;3.1 、整体布局
+&lt;/h2&gt;&lt;h3 id=&#34;整体布局&#34;&gt;整体布局
 &lt;/h3&gt;&lt;p&gt;照抄Naive Koala老师的文章《&lt;a class=&#34;link&#34; href=&#34;https://www.xalaok.top/post/stack-modify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo-theme-Stack 魔改美化&lt;/a&gt;》，文章写的很细心也很用心，属于喂饭教程。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -823,8 +823,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果你想更从容一点，可以提前把上面的文件复制主目录。开始魔改前，记得整体备份一下。&lt;/p&gt;
-&lt;h3 id=&#34;32一些细节&#34;&gt;3.2、一些细节
-&lt;/h3&gt;&lt;h4 id=&#34;322-添加文章开头更新时间和字数统计&#34;&gt;3.2.2 添加文章开头更新时间和字数统计
+&lt;h3 id=&#34;一些细节&#34;&gt;一些细节
+&lt;/h3&gt;&lt;h4 id=&#34;添加文章开头更新时间和字数统计&#34;&gt;添加文章开头更新时间和字数统计
 &lt;/h4&gt;&lt;p&gt;​	在&lt;code&gt;layouts\partials\article\components\details.html&lt;/code&gt;文件中，红框标记的就是增添组件的代码，黄框标记的就是两个组件的&lt;code&gt;icon&lt;/code&gt;命名（目录在&lt;code&gt;/assets/icons&lt;/code&gt;下）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/image-20241020113121718.png&#34;
 	width=&#34;1569&#34;
@@ -855,7 +855,7 @@
 		data-flex-basis=&#34;2187px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;322-添加文章末尾最后更新时间&#34;&gt;3.2.2 添加文章末尾最后更新时间
+&lt;h4 id=&#34;添加文章末尾最后更新时间&#34;&gt;添加文章末尾最后更新时间
 &lt;/h4&gt;&lt;p&gt;​	在博客主文件夹下 &lt;code&gt;layouts\partials\article\components\footer.html&lt;/code&gt;更新下面代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -914,7 +914,7 @@
 	srcset=&#34;http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241017144701072_hu7931107985977320175.png 480w, http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241017144701072_hu719188245431816830.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;“最后更新于”&#34;
+		alt=&#34;“最后更新于”示例图&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -922,7 +922,7 @@
 		data-flex-basis=&#34;1294px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;323-添加网站运行时间组件&#34;&gt;3.2.3 添加网站运行时间组件
+&lt;h4 id=&#34;添加网站运行时间组件&#34;&gt;添加网站运行时间组件
 &lt;/h4&gt;&lt;p&gt;​	打开&lt;code&gt;layouts\partials\footer\footer.html&lt;/code&gt;文件，将下面代码插入&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/image-20241020113933670.png&#34;
 	width=&#34;1641&#34;
@@ -1007,7 +1007,7 @@
 		data-flex-basis=&#34;1095px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h4 id=&#34;324-左侧栏-id-和简介换行&#34;&gt;3.2.4 左侧栏 ID 和简介换行
+&lt;h4 id=&#34;左侧栏-id-和简介换行&#34;&gt;左侧栏 ID 和简介换行
 &lt;/h4&gt;&lt;p&gt;​	找到&lt;code&gt;layouts\partials\footer\footer.html&lt;/code&gt;中下方代码，更改为&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/image-20241020114848291.png&#34;
 	width=&#34;1299&#34;
@@ -1083,11 +1083,12 @@
         
         <guid>http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
         <description>&lt;img src="http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/post/2024-10-18/%E3%80%90free%E3%80%91%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/hugo-stack.png" alt="Featured image of post 【Free】使用Hugo搭建GitHub私人博客" /&gt;&lt;h2 id=&#34;环境准备&#34;&gt;环境准备
-&lt;/h2&gt;&lt;h3 id=&#34;11-git下载&#34;&gt;1.1 Git下载
+&lt;/h2&gt;&lt;h3 id=&#34;git下载&#34;&gt;Git下载
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;进入【&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/downloads&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;git官网&lt;/a&gt;】，找到对应适用于自己电脑系统的版本进行下载
-&lt;img src=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/post/2024-10-18/%E3%80%90free%E3%80%91%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/image-20241019115613125.png&#34;
+&lt;li&gt;
+&lt;p&gt;进入【&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/downloads&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;git官网&lt;/a&gt;】，找到对应适用于自己电脑系统的版本进行下载&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/post/2024-10-18/%E3%80%90free%E3%80%91%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/image-20241019115613125.png&#34;
 	width=&#34;990&#34;
 	height=&#34;465&#34;
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/post/2024-10-18/%E3%80%90free%E3%80%91%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/image-20241019115613125_hu17206252040789960876.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/post/2024-10-18/%E3%80%90free%E3%80%91%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/image-20241019115613125_hu10116680270202875386.png 1024w&#34;
@@ -1100,10 +1101,13 @@
 		data-flex-grow=&#34;212&#34;
 		data-flex-basis=&#34;510px&#34;
 	
-&gt;&lt;/li&gt;
-&lt;li&gt;根据提示，默认安装即可&lt;/li&gt;
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据提示，默认安装即可&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;12-hugo下载&#34;&gt;1.2 Hugo下载
+&lt;h3 id=&#34;hugo下载&#34;&gt;Hugo下载
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;在【&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo的GitHub官网&lt;/a&gt;】上，根据自己系统，选择对应版本直接下载
@@ -1116,7 +1120,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014183330791-1729261775759-3_hu16260427173298928953.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014183330791-1729261775759-3_hu9035417243520928753.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014183330791&#34;
+		alt=&#34;hugo的两个版本区别&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1130,7 +1134,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014183040343_hu2486642054163365413.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014183040343_hu13690513541203271909.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014183040343&#34;
+		alt=&#34;windows下载hugo扩展版&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1147,7 +1151,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014193303654_hu8081519872870932067.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014193303654_hu16607063731611653107.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014193303654&#34;
+		alt=&#34;hugo.exe&amp;#43;主题&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1164,7 +1168,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014195540945_hu17058093247769100019.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014195540945_hu16876135891791800907.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014195540945&#34;
+		alt=&#34;配置hugo环境变量&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1173,7 +1177,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;博客搭建&#34;&gt;博客搭建
-&lt;/h2&gt;&lt;h3 id=&#34;21-创建博客&#34;&gt;2.1 创建博客
+&lt;/h2&gt;&lt;h3 id=&#34;创建博客&#34;&gt;创建博客
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;（1）在&lt;code&gt;hugo.exe&lt;/code&gt;所在文件夹上方地址栏中，输入&lt;code&gt;cmd&lt;/code&gt;，然后回车唤起命令行&lt;/li&gt;
 &lt;/ul&gt;
@@ -1183,7 +1187,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014193628612_hu16026567202636564437.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014193628612_hu6017480256831735817.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014193628612&#34;
+		alt=&#34;在hugo所在文件夹打开cmd&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1210,7 +1214,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014213022541_hu9907544043673126346.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014213022541_hu17371436735924474659.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014213022541&#34;
+		alt=&#34;新建博客项目&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1226,7 +1230,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241015161335382_hu17316409734011974293.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241015161335382_hu15582613184780003170.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241015161335382&#34;
+		alt=&#34;hugo创建的博客结构树&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1251,7 +1255,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014195956855_hu3644930266602058924.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014195956855_hu18036436656633055973.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014195956855&#34;
+		alt=&#34;启动hugo服务调试&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1268,7 +1272,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014210402474_hu12503965627816455942.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014210402474_hu256624002219700402.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014210402474&#34;
+		alt=&#34;hugo服务启动成功&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1276,7 +1280,7 @@
 		data-flex-basis=&#34;885px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;22-导入主题&#34;&gt;2.2 导入主题
+&lt;h3 id=&#34;导入主题&#34;&gt;导入主题
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;（1）前往【&lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo Themes&lt;/a&gt;】，选择一个自己中意的主题&lt;/li&gt;
@@ -1287,7 +1291,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014211855032_hu3208364547688306090.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014211855032_hu17675960829019194932.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014211855032&#34;
+		alt=&#34;下载主题&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1328,7 +1332,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014211748844_hu6536585905025629912.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014211748844_hu6963208447731736138.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014211748844&#34;
+		alt=&#34;克隆主题&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1348,7 +1352,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014212238303_hu656387917956224395.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014212238303_hu7018737388957086123.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014212238303&#34;
+		alt=&#34;复制content文件夹和hugo.yaml文件&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1365,7 +1369,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014212448974_hu7740399566220156059.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014212448974_hu14677723460395238105.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014212448974&#34;
+		alt=&#34;删除rich-content文件夹&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1382,7 +1386,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014200115743_hu7876128938250104279.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241014200115743_hu11110061654847525260.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241014200115743&#34;
+		alt=&#34;博客stack主题模板&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1391,7 +1395,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;github部署&#34;&gt;GitHub部署
-&lt;/h2&gt;&lt;h3 id=&#34;31-常规部署&#34;&gt;3.1 常规部署
+&lt;/h2&gt;&lt;h3 id=&#34;常规部署&#34;&gt;常规部署
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;（1）前往【&lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;GitHub官网&lt;/a&gt;】，登录或者注册一个GitHub账号，创建新的仓库{&lt;code&gt;GitHub用户名&lt;/code&gt;}.github.io（这里我已经注册了）&lt;/li&gt;
@@ -1402,7 +1406,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018174926832_hu11306907476493026693.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018174926832_hu9544109718034688247.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018174926832&#34;
+		alt=&#34;新建GitHub仓库&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1419,7 +1423,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018175538941_hu17680556473889383345.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018175538941_hu6282500996327463351.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018175538941&#34;
+		alt=&#34;构建部署GitHub博客仓库&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1434,7 +1438,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018175706568_hu12912353973131275677.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018175706568_hu7369459202757135865.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018175706568&#34;
+		alt=&#34;构建部署GitHub博客仓库分支&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1449,7 +1453,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018175752510_hu2600071294949654907.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018175752510_hu7633181704714925153.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018175752510&#34;
+		alt=&#34;站点配置发布源&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1498,7 +1502,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018181255036_hu3933981485311312833.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018181255036_hu8430307773557072095.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018181255036&#34;
+		alt=&#34;Branch检查&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1506,7 +1510,7 @@
 		data-flex-basis=&#34;754px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;32-自动化部署&#34;&gt;3.2 自动化部署
+&lt;h3 id=&#34;自动化部署&#34;&gt;自动化部署
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;具体要求&lt;/li&gt;
 &lt;/ul&gt;
@@ -1534,7 +1538,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018193512756_hu14441953113745068742.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018193512756_hu2511782532287856226.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018193512756&#34;
+		alt=&#34;进入GitHub个人主页设置&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1549,7 +1553,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018193702582_hu15248748495105234908.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018193702582_hu8446484956221947134.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018193702582&#34;
+		alt=&#34;点击token生成&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1565,7 +1569,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018194027596_hu7060694255123909432.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018194027596_hu16503681412677422106.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018194027596&#34;
+		alt=&#34;生成token&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1580,7 +1584,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018194645368_hu5331267416799903770.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018194645368_hu2867345376901788487.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018194645368&#34;
+		alt=&#34;保存token值&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -1597,7 +1601,7 @@
 	srcset=&#34;http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018192507059_hu10745097915871850426.png 480w, http://ranch007.github.io/p/free%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/assets/file-20241018192507059_hu8521807917753935766.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;file-20241018192507059&#34;
+		alt=&#34;配置GitHub Actions&#34;
 	
 	
 		class=&#34;gallery-image&#34; 

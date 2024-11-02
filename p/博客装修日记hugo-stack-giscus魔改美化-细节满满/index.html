@@ -10,7 +10,7 @@
 <meta property='og:description' content=" [!TIP]\n避免踩坑的建议：\n凡是需要更改的文件都从themes/主题复制到主目录（hugo new site xxx创建的那个）下\n接下来的个性化配置文件建议都在博客主目录下操作，减少更新主题时个性化配置被覆盖的麻烦\n">
 <meta property='og:url' content='http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/'>
 <meta property='og:site_name' content='Ranch&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='blog' /><meta property='article:published_time' content='2024-10-20T11:55:35&#43;00:00'/><meta property='article:modified_time' content='2024-11-02T18:08:52&#43;08:00'/><meta property='og:image' content='http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/hugo-stack.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='blog' /><meta property='article:published_time' content='2024-10-20T11:55:35&#43;00:00'/><meta property='article:modified_time' content='2024-11-02T23:08:41&#43;08:00'/><meta property='og:image' content='http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/hugo-stack.png' />
 <meta name="twitter:title" content="【博客装修日记】Hugo➕ Stack ➕ Giscus魔改美化 细节满满">
 <meta name="twitter:description" content=" [!TIP]\n避免踩坑的建议：\n凡是需要更改的文件都从themes/主题复制到主目录（hugo new site xxx创建的那个）下\n接下来的个性化配置文件建议都在博客主目录下操作，减少更新主题时个性化配置被覆盖的麻烦\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://ranch007.github.io/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/hugo-stack.png' />
@@ -307,21 +307,21 @@
     <li><a href="#导入主题">导入主题</a></li>
     <li><a href="#基础配置">基础配置</a>
       <ol>
-        <li><a href="#21打开hugoyaml">2.1、打开<code>hugo.yaml</code></a></li>
-        <li><a href="#22网站-icon时间格式博客头像">2.2、网站 <code>icon</code>、时间格式、博客头像</a></li>
-        <li><a href="#23license和留言板功能">2.3、<code>License</code>和留言板功能</a></li>
-        <li><a href="#24社交功能">2.4、社交功能</a></li>
+        <li><a href="#打开hugoyaml">打开<code>hugo.yaml</code></a></li>
+        <li><a href="#网站-icon时间格式博客头像">网站 <code>icon</code>、时间格式、博客头像</a></li>
+        <li><a href="#license和留言板功能"><code>License</code>和留言板功能</a></li>
+        <li><a href="#社交功能">社交功能</a></li>
       </ol>
     </li>
     <li><a href="#主题魔改">主题魔改</a>
       <ol>
-        <li><a href="#31-整体布局">3.1 、整体布局</a></li>
-        <li><a href="#32一些细节">3.2、一些细节</a>
+        <li><a href="#整体布局">整体布局</a></li>
+        <li><a href="#一些细节">一些细节</a>
           <ol>
-            <li><a href="#322-添加文章开头更新时间和字数统计">3.2.2 添加文章开头更新时间和字数统计</a></li>
-            <li><a href="#322-添加文章末尾最后更新时间">3.2.2 添加文章末尾最后更新时间</a></li>
-            <li><a href="#323-添加网站运行时间组件">3.2.3 添加网站运行时间组件</a></li>
-            <li><a href="#324-左侧栏-id-和简介换行">3.2.4 左侧栏 ID 和简介换行</a></li>
+            <li><a href="#添加文章开头更新时间和字数统计">添加文章开头更新时间和字数统计</a></li>
+            <li><a href="#添加文章末尾最后更新时间">添加文章末尾最后更新时间</a></li>
+            <li><a href="#添加网站运行时间组件">添加网站运行时间组件</a></li>
+            <li><a href="#左侧栏-id-和简介换行">左侧栏 ID 和简介换行</a></li>
           </ol>
         </li>
       </ol>
@@ -398,13 +398,13 @@
         <div>
             <section class="article-lastmod">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
-                    <time class="article-lastmod">2024-11-02T18:08</time>
+                    <time class="article-lastmod">2024-11-02T23:08</time>
             </section>
         </div>
             <div>
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
                 <time class="article-words">
-                    2477 字
+                    2451 字
                 </time>
             </div>
         
@@ -517,7 +517,7 @@
 	
 ></p>
 <h2 id="基础配置">基础配置
-</h2><h3 id="21打开hugoyaml">2.1、打开<code>hugo.yaml</code>
+</h2><h3 id="打开hugoyaml">打开<code>hugo.yaml</code>
 </h3><p>​	本地调试的时候<code>baseurl</code>可以设置为<code>http://localhost:1313</code>。调试完推送到GitHub上，记得改为网站根目录，有疑问请参考【<a class="link" href="https://gohugo.io/methods/site/baseurl/"  target="_blank" rel="noopener"
     >这里</a>】。</p>
 <p><img src="/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241016114218549.png"
@@ -526,7 +526,7 @@
 	srcset="/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241016114218549_hu6894575866974441816.png 480w, /p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241016114218549_hu15681440047585224711.png 1024w"
 	loading="lazy"
 	
-		alt="file-20241016114218549"
+		alt="个性化基础配置"
 	
 	
 		class="gallery-image" 
@@ -534,7 +534,7 @@
 		data-flex-basis="366px"
 	
 ></p>
-<h3 id="22网站-icon时间格式博客头像">2.2、网站 <code>icon</code>、时间格式、博客头像
+<h3 id="网站-icon时间格式博客头像">网站 <code>icon</code>、时间格式、博客头像
 </h3><ul>
 <li>网站icon存储路径：<code>/static/favcion.ico</code></li>
 <li>Go语言时间格式：</li>
@@ -555,7 +555,7 @@
 		data-flex-basis="356px"
 	
 ></p>
-<h3 id="23license和留言板功能">2.3、<code>License</code>和留言板功能
+<h3 id="license和留言板功能"><code>License</code>和留言板功能
 </h3><ul>
 <li><code>license</code>：做好公共版权许可协议声明</li>
 <li><code>comments</code>：进入【<a class="link" href="https://giscus.app/zh-CN"  target="_blank" rel="noopener"
@@ -616,7 +616,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l">zh-CN</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="24社交功能">2.4、社交功能
+</div><h3 id="社交功能">社交功能
 </h3><ul>
 <li>加入个人社交平台的链接</li>
 <li><code>icon</code>路径：博客主目录的<code>/assets/icons</code>下，所有<code>icon</code>都在这里，都是<code>svg</code>文件。</li>
@@ -636,7 +636,7 @@
 	
 ></p>
 <h2 id="主题魔改">主题魔改
-</h2><h3 id="31-整体布局">3.1 、整体布局
+</h2><h3 id="整体布局">整体布局
 </h3><p>照抄Naive Koala老师的文章《<a class="link" href="https://www.xalaok.top/post/stack-modify/"  target="_blank" rel="noopener"
     >Hugo-theme-Stack 魔改美化</a>》，文章写的很细心也很用心，属于喂饭教程。</p>
 <blockquote>
@@ -686,8 +686,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果你想更从容一点，可以提前把上面的文件复制主目录。开始魔改前，记得整体备份一下。</p>
-<h3 id="32一些细节">3.2、一些细节
-</h3><h4 id="322-添加文章开头更新时间和字数统计">3.2.2 添加文章开头更新时间和字数统计
+<h3 id="一些细节">一些细节
+</h3><h4 id="添加文章开头更新时间和字数统计">添加文章开头更新时间和字数统计
 </h4><p>​	在<code>layouts\partials\article\components\details.html</code>文件中，红框标记的就是增添组件的代码，黄框标记的就是两个组件的<code>icon</code>命名（目录在<code>/assets/icons</code>下）</p>
 <p><img src="/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/image-20241020113121718.png"
 	width="1569"
@@ -718,7 +718,7 @@
 		data-flex-basis="2187px"
 	
 ></p>
-<h4 id="322-添加文章末尾最后更新时间">3.2.2 添加文章末尾最后更新时间
+<h4 id="添加文章末尾最后更新时间">添加文章末尾最后更新时间
 </h4><p>​	在博客主文件夹下 <code>layouts\partials\article\components\footer.html</code>更新下面代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -777,7 +777,7 @@
 	srcset="/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241017144701072_hu7931107985977320175.png 480w, /p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/file-20241017144701072_hu719188245431816830.png 1024w"
 	loading="lazy"
 	
-		alt="“最后更新于”"
+		alt="“最后更新于”示例图"
 	
 	
 		class="gallery-image" 
@@ -785,7 +785,7 @@
 		data-flex-basis="1294px"
 	
 ></p>
-<h4 id="323-添加网站运行时间组件">3.2.3 添加网站运行时间组件
+<h4 id="添加网站运行时间组件">添加网站运行时间组件
 </h4><p>​	打开<code>layouts\partials\footer\footer.html</code>文件，将下面代码插入</p>
 <p><img src="/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/image-20241020113933670.png"
 	width="1641"
@@ -870,7 +870,7 @@
 		data-flex-basis="1095px"
 	
 ></p>
-<h4 id="324-左侧栏-id-和简介换行">3.2.4 左侧栏 ID 和简介换行
+<h4 id="左侧栏-id-和简介换行">左侧栏 ID 和简介换行
 </h4><p>​	找到<code>layouts\partials\footer\footer.html</code>中下方代码，更改为</p>
 <p><img src="/p/%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE%E6%97%A5%E8%AE%B0hugo-stack-giscus%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96-%E7%BB%86%E8%8A%82%E6%BB%A1%E6%BB%A1/assets/image-20241020114848291.png"
 	width="1299"
@@ -966,7 +966,7 @@
             <section class="article-lastmod">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
                     <time class="article-lastmod">
-                        最后更新于 2024-11-02T18:08</time>
+                        最后更新于 2024-11-02T23:08</time>
             </section>
         </div></footer>
 
