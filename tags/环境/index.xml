@@ -13,7 +13,7 @@
         
         <guid>http://ranch007.github.io/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/</guid>
         <description>&lt;hr&gt;
-&lt;h2 id=&#34;一jenv-介绍&#34;&gt;一、JEnv 介绍
+&lt;h2 id=&#34;jenv-介绍&#34;&gt;JEnv 介绍
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;【&lt;a class=&#34;link&#34; href=&#34;https://github.com/FelixSelter/JEnv-for-Windows&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;JEnv-for-Windows&lt;/a&gt;】是一个专为Windows系统设计的开源工具，由FelixSelter开发，其核心功能是让开发者能够轻松地在不同版本的Java开发工具包（JDK）之间进行切换。&lt;/p&gt;
@@ -39,7 +39,7 @@
 		data-flex-basis=&#34;640px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;二准备工作和详细安装步骤&#34;&gt;二、准备工作和详细安装步骤
+&lt;h2 id=&#34;准备工作和详细安装步骤&#34;&gt;准备工作和详细安装步骤
 &lt;/h2&gt;&lt;h3 id=&#34;步骤一下载jdk并配置&#34;&gt;步骤一：下载JDK并配置
 &lt;/h3&gt;&lt;h4 id=&#34;21安装-jdk&#34;&gt;2.1、安装 JDK
 &lt;/h4&gt;&lt;ul&gt;
@@ -267,7 +267,7 @@
 		data-flex-basis=&#34;966px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;三日常操作及使用方法&#34;&gt;三、日常操作及使用方法
+&lt;h2 id=&#34;日常操作及使用方法&#34;&gt;日常操作及使用方法
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;添加新的Java环境（需要绝对路径）&lt;/strong&gt;&lt;br&gt;
