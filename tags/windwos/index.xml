@@ -7,13 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Ranch&#39;s Blog</copyright>
-        <lastBuildDate>Sat, 09 Nov 2024 21:17:30 +0800</lastBuildDate><atom:link href="http://ranch007.github.io/tags/windwos/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 09 Nov 2024 21:20:30 +0800</lastBuildDate><atom:link href="http://ranch007.github.io/tags/windwos/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>VS Code 配置 C &amp; C&#43;&#43; 编程运行环境</title>
         <link>http://ranch007.github.io/p/vs-code-%E9%85%8D%E7%BD%AE-c-c-%E7%BC%96%E7%A8%8B%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</link>
         <pubDate>Sat, 09 Nov 2024 20:27:17 +0800</pubDate>
         
         <guid>http://ranch007.github.io/p/vs-code-%E9%85%8D%E7%BD%AE-c-c-%E7%BC%96%E7%A8%8B%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</guid>
-        <description>&lt;hr&gt;
+        <description>&lt;img src="http://ranch007.github.io/p/vs-code-%E9%85%8D%E7%BD%AE-c-c-%E7%BC%96%E7%A8%8B%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/c&amp;c&#43;&#43;.png" alt="Featured image of post VS Code 配置 C &amp; C&#43;&#43; 编程运行环境" /&gt;&lt;hr&gt;
 &lt;h2 id=&#34;准备工作&#34;&gt;准备工作
 &lt;/h2&gt;&lt;h3 id=&#34;下载-vs-code-安装包&#34;&gt;下载 VS Code 安装包
 &lt;/h3&gt;&lt;p&gt;官方下载链接：【&lt;a class=&#34;link&#34; href=&#34;https://code.visualstudio.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
