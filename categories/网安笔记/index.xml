@@ -7,6 +7,281 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Ranch&#39;s Blog</copyright><atom:link href="http://ranch007.github.io/categories/%E7%BD%91%E5%AE%89%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Apache ActiveMQ Jolokia 后台远程代码执行漏洞（CVE 2022 41678）</title>
+        <link>http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/</link>
+        <pubDate>Sun, 10 Nov 2024 19:11:16 +0800</pubDate>
+        
+        <guid>http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/</guid>
+        <description>&lt;img src="http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/activemq.png" alt="Featured image of post Apache ActiveMQ Jolokia 后台远程代码执行漏洞（CVE 2022 41678）" /&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Apache ActiveMQ 是美国阿帕奇（Apache）软件基金会所研发的一套开源的消息中间件，它支持Java消息服务、集群、Spring Framework等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ActiveMQ中，经过身份验证的用户默认情况下可以通过&lt;code&gt;/api/jolokia/&lt;/code&gt;接口操作MBean，其中FlightRecorder可以被用于写Jsp WebShell，从而造成远程代码执行漏洞&lt;/p&gt;
+&lt;p&gt;FlightRecorder存在于Jdk 11+，具体类名：&lt;code&gt;jdk.management.jfr.FlightRecorderMXBeanImpl&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;影响范围&#34;&gt;影响范围
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Apache ActiveMQ before 5.16.6&lt;/li&gt;
+&lt;li&gt;Apache ActiveMQ 5.17.0 before 5.17.4&lt;/li&gt;
+&lt;li&gt;Apache ActiveMQ 5.18.0 unaffected&lt;/li&gt;
+&lt;li&gt;Apache ActiveMQ 6.0.0 unaffected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;漏洞环境&#34;&gt;漏洞环境
+&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;CVE-2022-41678&lt;/code&gt;目录下执行如下命令启动一个Apache ActiveMQ 5.17.3服务器：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013103000193.png&#34;
+	width=&#34;1113&#34;
+	height=&#34;390&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013103000193_hu4780491936100978751.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013103000193_hu7215050145596052825.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;docker启动环境&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;285&#34;
+		data-flex-basis=&#34;684px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;服务启动后，访问&lt;code&gt;http://your-ip:8161/&lt;/code&gt;后输入账号密码&lt;code&gt;admin&lt;/code&gt;和&lt;code&gt;admin&lt;/code&gt;，即可成功登录后台。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013103231957.png&#34;
+	width=&#34;801&#34;
+	height=&#34;360&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013103231957_hu12064188273390494868.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013103231957_hu11704206656534617084.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;访问activeMQ环境&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;222&#34;
+		data-flex-basis=&#34;534px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;漏洞分析&#34;&gt;漏洞分析
+&lt;/h2&gt;&lt;h3 id=&#34;原理&#34;&gt;原理
+&lt;/h3&gt;&lt;p&gt;漏洞入口在【 &lt;a class=&#34;link&#34; href=&#34;http://localhost:8161/api/jolokia/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://localhost:8161/api/jolokia/&lt;/a&gt;】 ，⚠️注意需要带上Origin头才可以访问&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013120529941.png&#34;
+	width=&#34;1254&#34;
+	height=&#34;193&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013120529941_hu13778385235790933631.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013120529941_hu12350054906082274268.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;添加Origin头&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;649&#34;
+		data-flex-basis=&#34;1559px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;主要问题出在&lt;code&gt;FlightRecorder&lt;/code&gt;这个&lt;code&gt;Mbean&lt;/code&gt;，功能是记录内存，gc，调用栈等。
+漏洞用到的方法主要是以下几个：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;newRecording&lt;/code&gt;：新建记录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setConfiguration&lt;/code&gt;：更改配置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;startRecording&lt;/code&gt;：开始录制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stopRecording&lt;/code&gt;：结束录制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;copyTo&lt;/code&gt;：导出录制文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;漏洞思路是通过&lt;code&gt;setConfiguration&lt;/code&gt;修改配置，把一些键名改成jsp代码，记录的数据就会包含该jsp代码，录制完成后，通过copyTo导出到web目录即可&lt;/p&gt;
+&lt;p&gt;代码位置在 &lt;code&gt;jdk.management.jfr.FlightRecorderMXBeanImpl#setConfiguration&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122205712.png&#34;
+	width=&#34;864&#34;
+	height=&#34;730&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122205712_hu11303952226134364464.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122205712_hu1024464397283944560.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;可控的代码位置&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;118&#34;
+		data-flex-basis=&#34;284px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;漏洞复现&#34;&gt;漏洞复现
+&lt;/h2&gt;&lt;p&gt;首先，访问&lt;code&gt;/api/jolokia/list&lt;/code&gt;这个API可以查看当前服务里所有的MBeans：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 注意需要带上Origin头才可以访问
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Origin:http://192.168.1.3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013121235613.png&#34;
+	width=&#34;1202&#34;
+	height=&#34;575&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013121235613_hu168899337351000332.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013121235613_hu13709825686894856645.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;BP抓包修改&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;209&#34;
+		data-flex-basis=&#34;501px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这其中有两个点可以被用来执行任意代码。&lt;/p&gt;
+&lt;h3 id=&#34;途径一&#34;&gt;途径一
+&lt;/h3&gt;&lt;p&gt;第一个方法是使用&lt;code&gt;org.apache.logging.log4j.core.jmx.LoggerContextAdminMBean&lt;/code&gt;，这是由Log4j2提供的一个MBean。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122644723.png&#34;
+	width=&#34;583&#34;
+	height=&#34;98&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122644723_hu58595684267839817.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122644723_hu3929770757129517420.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Log4j2提供的MBean&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;594&#34;
+		data-flex-basis=&#34;1427px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;攻击者使用这个MBean中的&lt;code&gt;setConfigText&lt;/code&gt;操作可以更改Log4j的配置，进而将日志文件写入任意目录中。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122908331.png&#34;
+	width=&#34;509&#34;
+	height=&#34;99&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122908331_hu5001832833372914602.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013122908331_hu16951805873583580241.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;可控函数&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;514&#34;
+		data-flex-basis=&#34;1233px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用【&lt;a class=&#34;link&#34; href=&#34;https://github.com/vulhub/vulhub/blob/master/activemq/CVE-2022-41678/poc.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;POC&lt;/a&gt;】脚本来复现完整的过程：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pyhon poc.py -u admin -p admin http://your-ip:8161
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123035358.png&#34;
+	width=&#34;1113&#34;
+	height=&#34;144&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123035358_hu13866367272761762245.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123035358_hu12579552618965958141.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;poc执行成功并写入shell&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;772&#34;
+		data-flex-basis=&#34;1855px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Webshell被写入在&lt;code&gt;/admin/shell.jsp&lt;/code&gt;文件中：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123224695.png&#34;
+	width=&#34;1298&#34;
+	height=&#34;419&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123224695_hu15961504560005085616.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123224695_hu16625920705417835606.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;访问写入的shell&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;309&#34;
+		data-flex-basis=&#34;743px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这个方法受到ActiveMQ版本的限制，因为&lt;strong&gt;Log4j2是在5.17.0中才引入&lt;/strong&gt;Apache ActiveMQ。&lt;/p&gt;
+&lt;h3 id=&#34;途径二&#34;&gt;途径二
+&lt;/h3&gt;&lt;p&gt;第二个可利用的Mbean是&lt;code&gt;jdk.management.jfr.FlightRecorderMXBean&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123659071.png&#34;
+	width=&#34;585&#34;
+	height=&#34;139&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123659071_hu6995087566494929819.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013123659071_hu12769707916805950604.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;FlightRecorder的具体使用&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;420&#34;
+		data-flex-basis=&#34;1010px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;FlightRecorder&lt;/code&gt;是在OpenJDK 11中引入的特性，被用于记录Java虚拟机的运行事件。利用这个功能，攻击者可以将事件日志写入任意文件。&lt;/p&gt;
+&lt;p&gt;使用【&lt;a class=&#34;link&#34; href=&#34;https://github.com/vulhub/vulhub/blob/master/activemq/CVE-2022-41678/poc.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;POC&lt;/a&gt;】脚本来复现完整的过程（使用&lt;code&gt;--exploit&lt;/code&gt;参数指定使用的方法）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python poc.py -u admin -p admin --exploit jfr http://localhost:8161
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013124144286.png&#34;
+	width=&#34;1184&#34;
+	height=&#34;178&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013124144286_hu9943695569252429262.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013124144286_hu5291215198284685797.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;poc成功执行可访问webshell&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;665&#34;
+		data-flex-basis=&#34;1596px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Webshell被写入在&lt;code&gt;/admin/shelljfr.jsp&lt;/code&gt;文件中：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013124239783.png&#34;
+	width=&#34;1007&#34;
+	height=&#34;383&#34;
+	srcset=&#34;http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013124239783_hu2301320592021201549.png 480w, http://ranch007.github.io/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/assets/file-20241013124239783_hu5236171660789404911.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;确认存在该漏洞&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;262&#34;
+		data-flex-basis=&#34;631px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;漏洞修复&#34;&gt;漏洞修复
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;AMQ-9201 - Update Jolokia default access configuration · apache/activemq@6120169
+GitHub： &lt;a class=&#34;link&#34; href=&#34;https://github.com/apache/activemq/commit/6120169e5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/apache/activemq/commit/6120169e5&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录
+&lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;《&lt;a class=&#34;link&#34; href=&#34;https://l3yx.github.io/2023/11/29/Apache-ActiveMQ-Jolokia-%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E-CVE-2022-41678-%E5%88%86%E6%9E%90/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Apache ActiveMQ Jolokia 远程代码执行漏洞(CVE-2022-41678)分析&lt;/a&gt;》&lt;/li&gt;
+&lt;li&gt;《&lt;a class=&#34;link&#34; href=&#34;http://www.aqtd.com/nd.jsp?id=7505&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Apache ActiveMQ历史漏洞复现合集&lt;/a&gt;》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息
+&lt;/h3&gt;&lt;p&gt;本文原载于 &lt;a class=&#34;link&#34; href=&#34;https://ranch007.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ranch&amp;rsquo;s Blog&lt;/a&gt;，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>掌握 Docker魔法：Windows 11 平台上的完美容器部署终极指南</title>
         <link>http://ranch007.github.io/p/%E6%8E%8C%E6%8F%A1-docker%E9%AD%94%E6%B3%95windows-11-%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97/</link>
         <pubDate>Fri, 08 Nov 2024 21:43:41 +0800</pubDate>
