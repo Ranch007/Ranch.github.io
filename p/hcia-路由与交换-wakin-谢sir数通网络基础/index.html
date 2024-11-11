@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 数通基础 什么是网络？ 网络的本质就是实现资源共享 将各个系统连接到一起，形成信息传递、接收、共享的信息交互平台\n万物互联 人与人、人与物、物与物的互联 本质是数据的联结与计算\n">
+<title>【HCIA 路由与交换 Wakin 谢Sir】数通网络基础</title>
+
+<link rel='canonical' href='http://ranch007.github.io/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.919a9c8b716d1a89527eb9f90b0c326d3d670e14c08afc0efe9e988ee056272c.css"><meta property='og:title' content="【HCIA 路由与交换 Wakin 谢Sir】数通网络基础">
+<meta property='og:description' content=" 数通基础 什么是网络？ 网络的本质就是实现资源共享 将各个系统连接到一起，形成信息传递、接收、共享的信息交互平台\n万物互联 人与人、人与物、物与物的互联 本质是数据的联结与计算\n">
+<meta property='og:url' content='http://ranch007.github.io/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/'>
+<meta property='og:site_name' content='Ranch&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='' /><meta property='article:published_time' content='2024-11-11T21:06:03&#43;08:00'/><meta property='article:modified_time' content='2024-11-12T00:00:06&#43;08:00'/><meta property='og:image' content='http://ranch007.github.io/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/wakin.png' />
+<meta name="twitter:title" content="【HCIA 路由与交换 Wakin 谢Sir】数通网络基础">
+<meta name="twitter:description" content=" 数通基础 什么是网络？ 网络的本质就是实现资源共享 将各个系统连接到一起，形成信息传递、接收、共享的信息交互平台\n万物互联 人与人、人与物、物与物的互联 本质是数据的联结与计算\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://ranch007.github.io/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/wakin.png' />
+    <link rel="shortcut icon" href="/favcion.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="https://github.com/Ranch007">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu45785650040229606.png" width="300"
+                            height="309" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"><span>Ranch</span></a></h1>
+            <h2 class="site-description">知识面决定攻击面<br>知识链决定攻击链</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Ranch007'
+                        target="_blank"
+                        title="Ranch&#39;s GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:zhao11345lin07@163.com'
+                        target="_blank"
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="RSS"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E7%95%99%E8%A8%80/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+  <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
+</svg>
+
+
+
+                
+                <span>留言</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun-high" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" />
+  <path d="M6.343 17.657l-1.414 1.414" />
+  <path d="M6.343 6.343l-1.414 -1.414" />
+  <path d="M17.657 6.343l1.414 -1.414" />
+  <path d="M17.657 17.657l1.414 1.414" />
+  <path d="M4 12h-2" />
+  <path d="M12 4v-2" />
+  <path d="M20 12h2" />
+  <path d="M12 20v2" />
+</svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+  <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+  <path d="M19 11h2m-1 -1v2" />
+</svg>
+                        <span>背景模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#数通基础">数通基础</a>
+      <ol>
+        <li><a href="#什么是网络">什么是网络？</a></li>
+        <li><a href="#万物互联">万物互联</a></li>
+        <li><a href="#数通是连结万物的管道">数通是连结万物的“管道”</a></li>
+        <li><a href="#数通网络介绍">数通网络介绍</a></li>
+        <li><a href="#信息的传递">信息的传递</a>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#网络基础">网络基础</a>
+      <ol>
+        <li><a href="#网络模型">网络模型</a></li>
+        <li><a href="#网络基础架构">网络基础架构</a></li>
+        <li><a href="#封装和解封装">封装和解封装</a></li>
+        <li><a href="#protocol协议">Protocol：协议</a></li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#参考文献">参考文献</a></li>
+        <li><a href="#版权信息">版权信息</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">
+                <img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/wakin_hu13735688749487554964.png"
+                        srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/wakin_hu13735688749487554964.png 800w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/wakin_hu7933001721160080537.png 1600w"
+                        width="800" 
+                        height="525" 
+                        loading="lazy"
+                        alt="Featured image of post 【HCIA 路由与交换 Wakin 谢Sir】数通网络基础" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">【HCIA 路由与交换 Wakin 谢Sir】数通网络基础</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-11-11</time>
+            </div>
+        <div>
+            <section class="article-lastmod">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
+                    <time class="article-lastmod">2024-11-12T00:00</time>
+            </section>
+        </div>
+            <div>
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
+                <time class="article-words">
+                    733 字
+                </time>
+            </div>
+        
+      
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <hr>
+<h2 id="数通基础">数通基础
+</h2><h3 id="什么是网络">什么是网络？
+</h3><blockquote>
+<p>网络的本质就是<strong>实现资源共享</strong>
+将各个系统连接到一起，形成信息传递、接收、共享的信息交互平台</p>
+</blockquote>
+<h3 id="万物互联">万物互联
+</h3><blockquote>
+<p>人与人、人与物、物与物的互联
+本质是数据的联结与计算</p>
+</blockquote>
+<h3 id="数通是连结万物的管道">数通是连结万物的“管道”
+</h3><p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823213457760.png"
+	width="871"
+	height="190"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823213457760_hu17124825165234420561.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823213457760_hu8608989519459402945.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823213457760"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="458"
+		data-flex-basis="1100px"
+	
+><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823213857734.png"
+	width="1317"
+	height="371"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823213857734_hu9448464312464822654.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823213857734_hu4963815563857673795.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823213857734"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="354"
+		data-flex-basis="851px"
+	
+></p>
+<h3 id="数通网络介绍">数通网络介绍
+</h3><p><strong>Data Communication Network</strong></p>
+<blockquote>
+<p>一个典型的数通网络通常由<font color="#4f81bd">路由器</font>、<font color="#f79646">交换机</font>、<font color="#c0504d">防火墙</font>、<font color="#8064a2">无线控制器</font>、<font color="#4bacc6">无线接入点</font>、个人电脑、网络打印机、服务器等设备构成的通信网络，最基本的功能就是<strong>实现数据互通</strong>。
+而<strong>网络拓扑图</strong>就是呈现一个数通网路的结构化布局。</p>
+</blockquote>
+<h3 id="信息的传递">信息的传递
+</h3><p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823220627605.png"
+	width="1460"
+	height="267"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823220627605_hu11882278546725693182.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823220627605_hu17263869547942331374.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823220627605"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="546"
+		data-flex-basis="1312px"
+	
+></p>
+<p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823220753114.png"
+	width="1507"
+	height="841"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823220753114_hu5737500201795522544.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823220753114_hu4176001757488620396.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823220753114"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="430px"
+	
+></p>
+<ul>
+<li>
+<h5 id="带宽bandwidth">带宽：bandwidth
+</h5></li>
+</ul>
+<p>描述在单位时间内传输的数量
+单位：bps（bit per second，比特每秒）</p>
+<ul>
+<li>
+<h5 id="延迟delay">延迟：delay
+</h5></li>
+</ul>
+<p>描述数据传输所经历的时间
+单位：ms（毫秒）</p>
+<h2 id="网络基础">网络基础
+</h2><h3 id="网络模型">网络模型
+</h3><p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221112061.png"
+	width="931"
+	height="418"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221112061_hu6608553763259812990.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221112061_hu9180647633218522518.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823221112061"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="534px"
+	
+></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center"><font color="#ffff00">OSI模型</font></th>
+          <th style="text-align: center">作用</th>
+          <th style="text-align: center"><font color="#ffff00">TCP/IP模型</font></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">应用层</td>
+          <td style="text-align: center">为应用程序提供网络服务</td>
+          <td style="text-align: center">应</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">表示层</td>
+          <td style="text-align: center">数据格式化，加密、解密</td>
+          <td style="text-align: center">用</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">会话层</td>
+          <td style="text-align: center">建立、维护、管理会话连接</td>
+          <td style="text-align: center">层</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">传输层</td>
+          <td style="text-align: center">建立、维护、管理端到端连接</td>
+          <td style="text-align: center">传输层</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">网络层</td>
+          <td style="text-align: center">IP寻址和路由选择</td>
+          <td style="text-align: center">网络层</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">数据链路层</td>
+          <td style="text-align: center">控制网络层与物理层之间的通信</td>
+          <td style="text-align: center">数据链路层</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">物理层</td>
+          <td style="text-align: center">比特流传输</td>
+          <td style="text-align: center">物理层</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="网络基础架构">网络基础架构
+</h3><p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240825100304756.png"
+	width="1513"
+	height="705"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240825100304756_hu13421561999211318583.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240825100304756_hu13506256780062290214.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240825100304756"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="214"
+		data-flex-basis="515px"
+	
+></p>
+<h3 id="封装和解封装">封装和解封装
+</h3><p><strong>encapsulation &amp; de-encapsulation</strong></p>
+<ul>
+<li>数据发送时，逐层向下，添加相关头部或尾部的过程，称为封装（打包）</li>
+</ul>
+<p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221545828.png"
+	width="1640"
+	height="893"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221545828_hu13744728746374994331.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221545828_hu12042087191801298400.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823221545828"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="440px"
+	
+></p>
+<ul>
+<li>数据接收时，逐层向上，拆除相关头部或尾部的过程，称为解封装（拆包）</li>
+</ul>
+<p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221705699.png"
+	width="1795"
+	height="930"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221705699_hu7949807654614224921.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221705699_hu1899306147334021142.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823221705699"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="463px"
+	
+></p>
+<ul>
+<li>OSI把每一层数据称为PDU（Protocol Data Unit，协议数据单元）</li>
+<li>TCP/IP根据不同层分别使用：<font color="#92d050">数据（Data）</font>、<font color="#92d050">段（Segment）</font>、<font color="#92d050">包（Packet）</font>、<font color="#92d050">帧（Frame）</font>、<font color="#92d050">位（bit）</font></li>
+</ul>
+<p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221822129.png"
+	width="1543"
+	height="809"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221822129_hu4732890265704522241.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823221822129_hu11754367496154434627.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823221822129"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="190"
+		data-flex-basis="457px"
+	
+></p>
+<h3 id="protocol协议">Protocol：协议
+</h3><p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823222054502.png"
+	width="922"
+	height="210"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823222054502_hu14561718632402071605.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823222054502_hu9245047387989646133.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823222054502"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="439"
+		data-flex-basis="1053px"
+	
+></p>
+<blockquote>
+<p>在通信领域中，协议就是用来决定数据的格式和传输的一些规则</p>
+<p>网络通信中的“语言”</p>
+</blockquote>
+<p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823222141724.png"
+	width="1558"
+	height="705"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823222141724_hu18321212992360320930.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240823222141724_hu14557057037261534536.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240823222141724"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="220"
+		data-flex-basis="530px"
+	
+></p>
+<p><img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240825112304112.png"
+	width="1056"
+	height="531"
+	srcset="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240825112304112_hu3919993386619489558.png 480w, /p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E6%95%B0%E9%80%9A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/assets/file-20240825112304112_hu7803029332650833577.png 1024w"
+	loading="lazy"
+	
+		alt="file-20240825112304112"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="477px"
+	
+></p>
+<blockquote>
+<p>【<a class="link" href="https://support.huawei.com/hedex/hdx.do?docid=EDOC1000105967&amp;id=ZH-CN_CONCEPT_0000001501534705"  target="_blank" rel="noopener"
+    >华为官网公布的协议地图</a>】</p>
+</blockquote>
+<h2 id="附录">附录
+</h2><h3 id="参考文献">参考文献
+</h3><p>《<a class="link" href="https://www.bilibili.com/video/BV1qP4y1w75v/?spm_id_from=333.999.0.0&amp;vd_source=00d49c6b1d7b58728495868451fb3d19"  target="_blank" rel="noopener"
+    >Wakin 谢Sir 最新数通精品课程_哔哩哔哩_bilibili</a>》</p>
+<h3 id="版权信息">版权信息
+</h3><p>本文原载于 <a class="link" href="https://ranch007.github.io"  target="_blank" rel="noopener"
+    >Ranch&rsquo;s Blog</a>，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+    </section>
+
+    
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>根据CC BY-NC-SA 4.0协议授权，转载请在留言板告知🔔</span>
+    </section>
+    <div>
+            <section class="article-lastmod">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
+                    <time class="article-lastmod">
+                        最后更新于 2024-11-12T00:00</time>
+            </section>
+        </div></footer>
+
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E4%BA%94%E5%B1%82%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84/">
+        
+        
+            <div class="article-image">
+                <img src="/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sir%E4%BA%94%E5%B1%82%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84/wakin.55c7369fac64075f798aec08289a56b6_hu16317897739362741024.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 【HCIA 路由与交换 Wakin 谢Sir】五层协议的体系架构"
+                        data-key="【HCIA 路由与交换 Wakin 谢Sir】五层协议的体系架构" 
+                        data-hash="md5-Vcc2n6xkB195iuwIKJpWtg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【HCIA 路由与交换 Wakin 谢Sir】五层协议的体系架构</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="Ranch007/Message-Boards"
+    data-repo-id="R_kgDONBh4yw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDONBh4y84CjbwV"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    
+    <section class="copyright">
+        &copy; 
+        
+        2024 Ranch&#39;s Blog
+    </section>
+
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script language="javascript"> 
+        var now = new Date();
+        function createtime(){
+            
+            now.setTime(now.getTime() + 250);
+            var grt = new Date("2024/10/15 00:00:00"); 
+            var days = (now - grt) / 1000 / 60 / 60 / 24;
+            var dnum = Math.floor(days);
+            var hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            var hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            var minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            var mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            var seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            var snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+    
+            document.getElementById("timeDate").innerHTML = `本站已稳定运行<span style="color: lightblue;">${dnum}</span> 天`;
+            document.getElementById("timeDate").style.color = "gray"; 
+            document.getElementById("times").innerHTML = `<span style="color: lightblue;">${hnum}</span> 小时 <span style="color: lightblue;">${mnum}</span> 分 <span style="color: lightblue;">${snum}</span> 秒`;
+            document.getElementById("times").style.color = "gray"; 
+        }
+        setInterval(createtime, 250); 
+    </script>
+
+    
+    <section class="powerby">
+        
+            🤝本博客仅用于记录个人学习和成长。所有内容仅为个人观点，不代表任何团体或组织的立场。如有疑问，欢迎联系！ <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script src="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.css" crossorigin="anonymous" />
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+
+
+    </body>
+</html>
