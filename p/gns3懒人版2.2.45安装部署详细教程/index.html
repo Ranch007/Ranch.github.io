@@ -10,9 +10,10 @@
 <meta property='og:description' content=" 前言 【GNS3懒人版-2.2.45】—— by 熄灭的蜡烛\n【GNS3懒人版入门视频教程】—— by 熄灭的蜡烛\n感谢大佬的辛勤创作和无私分享！🫶\n镜像集成列表 镜像 Cisco 1: Cisco IOL Router 15.7(3)M22: Cisco IOL Switch 15.2(CML_NIGHTLY_20180510)3: Cisco IOL Switch 15.2(CML_NIGHTLY_20190423)4: Cisco IOSv 15.9(3)M65: Cisco IOSvL2 15.2(20200924:215240) H3C 6: H3C vAC1000 7.1.064 R5466P017: H3C vFW1000 7.1.064 E1190P028: H3C vSR1000 7.1.064 R1362P12 HillStone 9: HillStone SG6000 CloudEdge 5.5R10P4 v6 FortiGate 10: FortiGate 7.0.13 HuaWei 11: HuaWei AR1kv V300R021C00SPC100T12: HuaWei CE6800 V200R005C10SPC607B60713: HuaWei CE12800 V200R005C10SPC607B60714: HuaWei NE40E V800R011C00SPC607B60715: HuaWei USG6000V2 V500R005C00SPC100 Ruijie 16: Ruijie RG NSE router v1.0617: Ruijie RG NSE switch v1.0618: Ruijie RG NSE firewall v1.03 Juniper 19: Juniper vMX vCP 23.2R1-S1.620: Juniper vMX vFP 23.2R1-S1.6-KVM Windows 21: Windows XP Pro SP3 x8622: Windows Server 2022 DC x6423: Windows 10 22H2 Pro for Workstation x6424: Windows 11 23H2 Pro for Workstation x64 Ubuntu 25: Ubuntu Docker Guest\n26: Ubuntu 22.04 Desktop amd64\n27: Ubuntu Cloud 20.04 Server28: Ubuntu Cloud 22.04 Server RHEL 29: RHEL 7.9 update 1230: RHEL 8.831: RHEL 9.3 关于镜像密码的查看 在左侧设备列表里面双击你想要查看密码的那个，然后在打开的窗口里面点击最右边的选项卡里面查看。\n">
 <meta property='og:url' content='http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/'>
 <meta property='og:site_name' content='Ranch&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='GNS3' /><meta property='article:published_time' content='2024-11-12T23:01:09&#43;08:00'/><meta property='article:modified_time' content='2024-11-13T01:23:02&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='GNS3' /><meta property='article:published_time' content='2024-11-12T23:01:09&#43;08:00'/><meta property='article:modified_time' content='2024-11-13T01:30:52&#43;08:00'/><meta property='og:image' content='http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/gns3.png' />
 <meta name="twitter:title" content="GNS3懒人版2.2.45安装部署详细教程">
-<meta name="twitter:description" content=" 前言 【GNS3懒人版-2.2.45】—— by 熄灭的蜡烛\n【GNS3懒人版入门视频教程】—— by 熄灭的蜡烛\n感谢大佬的辛勤创作和无私分享！🫶\n镜像集成列表 镜像 Cisco 1: Cisco IOL Router 15.7(3)M22: Cisco IOL Switch 15.2(CML_NIGHTLY_20180510)3: Cisco IOL Switch 15.2(CML_NIGHTLY_20190423)4: Cisco IOSv 15.9(3)M65: Cisco IOSvL2 15.2(20200924:215240) H3C 6: H3C vAC1000 7.1.064 R5466P017: H3C vFW1000 7.1.064 E1190P028: H3C vSR1000 7.1.064 R1362P12 HillStone 9: HillStone SG6000 CloudEdge 5.5R10P4 v6 FortiGate 10: FortiGate 7.0.13 HuaWei 11: HuaWei AR1kv V300R021C00SPC100T12: HuaWei CE6800 V200R005C10SPC607B60713: HuaWei CE12800 V200R005C10SPC607B60714: HuaWei NE40E V800R011C00SPC607B60715: HuaWei USG6000V2 V500R005C00SPC100 Ruijie 16: Ruijie RG NSE router v1.0617: Ruijie RG NSE switch v1.0618: Ruijie RG NSE firewall v1.03 Juniper 19: Juniper vMX vCP 23.2R1-S1.620: Juniper vMX vFP 23.2R1-S1.6-KVM Windows 21: Windows XP Pro SP3 x8622: Windows Server 2022 DC x6423: Windows 10 22H2 Pro for Workstation x6424: Windows 11 23H2 Pro for Workstation x64 Ubuntu 25: Ubuntu Docker Guest\n26: Ubuntu 22.04 Desktop amd64\n27: Ubuntu Cloud 20.04 Server28: Ubuntu Cloud 22.04 Server RHEL 29: RHEL 7.9 update 1230: RHEL 8.831: RHEL 9.3 关于镜像密码的查看 在左侧设备列表里面双击你想要查看密码的那个，然后在打开的窗口里面点击最右边的选项卡里面查看。\n">
+<meta name="twitter:description" content=" 前言 【GNS3懒人版-2.2.45】—— by 熄灭的蜡烛\n【GNS3懒人版入门视频教程】—— by 熄灭的蜡烛\n感谢大佬的辛勤创作和无私分享！🫶\n镜像集成列表 镜像 Cisco 1: Cisco IOL Router 15.7(3)M22: Cisco IOL Switch 15.2(CML_NIGHTLY_20180510)3: Cisco IOL Switch 15.2(CML_NIGHTLY_20190423)4: Cisco IOSv 15.9(3)M65: Cisco IOSvL2 15.2(20200924:215240) H3C 6: H3C vAC1000 7.1.064 R5466P017: H3C vFW1000 7.1.064 E1190P028: H3C vSR1000 7.1.064 R1362P12 HillStone 9: HillStone SG6000 CloudEdge 5.5R10P4 v6 FortiGate 10: FortiGate 7.0.13 HuaWei 11: HuaWei AR1kv V300R021C00SPC100T12: HuaWei CE6800 V200R005C10SPC607B60713: HuaWei CE12800 V200R005C10SPC607B60714: HuaWei NE40E V800R011C00SPC607B60715: HuaWei USG6000V2 V500R005C00SPC100 Ruijie 16: Ruijie RG NSE router v1.0617: Ruijie RG NSE switch v1.0618: Ruijie RG NSE firewall v1.03 Juniper 19: Juniper vMX vCP 23.2R1-S1.620: Juniper vMX vFP 23.2R1-S1.6-KVM Windows 21: Windows XP Pro SP3 x8622: Windows Server 2022 DC x6423: Windows 10 22H2 Pro for Workstation x6424: Windows 11 23H2 Pro for Workstation x64 Ubuntu 25: Ubuntu Docker Guest\n26: Ubuntu 22.04 Desktop amd64\n27: Ubuntu Cloud 20.04 Server28: Ubuntu Cloud 22.04 Server RHEL 29: RHEL 7.9 update 1230: RHEL 8.831: RHEL 9.3 关于镜像密码的查看 在左侧设备列表里面双击你想要查看密码的那个，然后在打开的窗口里面点击最右边的选项卡里面查看。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/gns3.png' />
     <link rel="shortcut icon" href="/favcion.ico" />
 
     </head>
@@ -344,8 +345,20 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">
+                <img src="/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/gns3_hu6477983818480361314.png"
+                        srcset="/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/gns3_hu6477983818480361314.png 800w, /p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/gns3_hu14013382128496196069.png 1600w"
+                        width="800" 
+                        height="419" 
+                        loading="lazy"
+                        alt="Featured image of post GNS3懒人版2.2.45安装部署详细教程" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -387,7 +400,7 @@
         <div>
             <section class="article-lastmod">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
-                    <time class="article-lastmod">2024-11-13T01:23</time>
+                    <time class="article-lastmod">2024-11-13T01:30</time>
             </section>
         </div>
             <div>
@@ -758,7 +771,7 @@ SHA256: 70bb6c738570ca6db011c003938cd8cde6ccf8ad11a48493c587234218307c2e</p>
             <section class="article-lastmod">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
                     <time class="article-lastmod">
-                        最后更新于 2024-11-13T01:23</time>
+                        最后更新于 2024-11-13T01:30</time>
             </section>
         </div></footer>
 
