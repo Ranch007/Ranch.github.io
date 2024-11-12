@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>网工笔记 on Ranch&#39;s Blog</title>
-        <link>http://ranch007.github.io/categories/%E7%BD%91%E5%B7%A5%E7%AC%94%E8%AE%B0/</link>
-        <description>Recent content in 网工笔记 on Ranch&#39;s Blog</description>
+        <title>HCIA on Ranch&#39;s Blog</title>
+        <link>http://ranch007.github.io/tags/hcia/</link>
+        <description>Recent content in HCIA on Ranch&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Ranch&#39;s Blog</copyright><atom:link href="http://ranch007.github.io/categories/%E7%BD%91%E5%B7%A5%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>Ranch&#39;s Blog</copyright><atom:link href="http://ranch007.github.io/tags/hcia/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>【HCIA 路由与交换 Wakin 谢Sir】TCP/IP网络模型</title>
         <link>http://ranch007.github.io/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sirtcp/ip%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Mon, 11 Nov 2024 22:05:23 +0800</pubDate>

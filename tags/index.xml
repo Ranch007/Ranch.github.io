@@ -7,12 +7,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Ranch&#39;s Blog</copyright>
-        <lastBuildDate>Mon, 11 Nov 2024 20:08:10 +0800</lastBuildDate><atom:link href="http://ranch007.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Nov 2024 09:13:01 +0800</lastBuildDate><atom:link href="http://ranch007.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Blog</title>
         <link>http://ranch007.github.io/tags/blog/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://ranch007.github.io/tags/blog/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>HCIA</title>
+        <link>http://ranch007.github.io/tags/hcia/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://ranch007.github.io/tags/hcia/</guid>
         <description></description>
         </item>
         <item>
