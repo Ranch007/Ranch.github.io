@@ -7,6 +7,318 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Ranch&#39;s Blog</copyright><atom:link href="http://ranch007.github.io/categories/%E7%BD%91%E5%B7%A5%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>GNS3懒人版2.2.45安装部署详细教程</title>
+        <link>http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/</link>
+        <pubDate>Tue, 12 Nov 2024 23:01:09 +0800</pubDate>
+        
+        <guid>http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/</guid>
+        <description>&lt;hr&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;【&lt;a class=&#34;link&#34; href=&#34;https://www.emulatedlab.com/thread-1561-1-1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GNS3懒人版-2.2.45&lt;/a&gt;】—— by 熄灭的蜡烛&lt;/p&gt;
+&lt;p&gt;【&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1fi4y1r7Tb/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GNS3懒人版入门视频教程&lt;/a&gt;】—— by 熄灭的蜡烛&lt;/p&gt;
+&lt;p&gt;感谢大佬的辛勤创作和无私分享！🫶&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;镜像集成列表&#34;&gt;镜像集成列表
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;镜像&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;&lt;br /&gt;Cisco&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1: Cisco IOL Router 15.7(3)M2&lt;br/&gt;2: Cisco IOL Switch 15.2(CML_NIGHTLY_20180510)&lt;br/&gt;3: Cisco IOL Switch 15.2(CML_NIGHTLY_20190423)&lt;br/&gt;4: Cisco IOSv 15.9(3)M6&lt;br/&gt;5: Cisco IOSvL2 15.2(20200924:215240)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;H3C&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;6: H3C vAC1000 7.1.064 R5466P01&lt;br/&gt;7: H3C vFW1000 7.1.064 E1190P02&lt;br/&gt;8: H3C vSR1000 7.1.064 R1362P12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;HillStone&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;9: HillStone SG6000 CloudEdge 5.5R10P4 v6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;FortiGate&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;10: FortiGate 7.0.13&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;&lt;br /&gt;HuaWei&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;11: HuaWei AR1kv V300R021C00SPC100T&lt;br/&gt;12: HuaWei CE6800 V200R005C10SPC607B607&lt;br/&gt;13: HuaWei CE12800 V200R005C10SPC607B607&lt;br/&gt;14: HuaWei NE40E V800R011C00SPC607B607&lt;br/&gt;15: HuaWei USG6000V2 V500R005C00SPC100&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;Ruijie&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;16: Ruijie RG NSE router v1.06&lt;br/&gt;17: Ruijie RG NSE switch v1.06&lt;br/&gt;18: Ruijie RG NSE firewall v1.03&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Juniper&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;19: Juniper vMX vCP 23.2R1-S1.6&lt;br/&gt;20: Juniper vMX vFP 23.2R1-S1.6-KVM&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;Windows&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;21: Windows XP Pro SP3 x86&lt;br/&gt;22: Windows Server 2022 DC x64&lt;br/&gt;23: Windows 10 22H2 Pro for Workstation x64&lt;br/&gt;24: Windows 11 23H2 Pro for Workstation x64&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;Ubuntu&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;25: Ubuntu Docker Guest&lt;br /&gt;26: Ubuntu 22.04 Desktop amd64&lt;br /&gt;27: Ubuntu Cloud 20.04 Server&lt;br/&gt;28: Ubuntu Cloud 22.04 Server&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;br /&gt;RHEL&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;29: RHEL 7.9 update 12&lt;br/&gt;30: RHEL 8.8&lt;br/&gt;31: RHEL 9.3&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;关于镜像密码的查看&#34;&gt;关于镜像密码的查看
+&lt;/h3&gt;&lt;p&gt;在左侧设备列表里面双击你想要查看密码的那个，然后在打开的窗口里面点击最右边的选项卡里面查看。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113000705087.png&#34;
+	width=&#34;1414&#34;
+	height=&#34;845&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113000705087_hu15568726575080486448.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113000705087_hu10961714731342304350.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;大部分设备没有密码，具体请看Usage中备注&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;401px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;资源链接&#34;&gt;资源链接
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;百度网盘&lt;/strong&gt;&lt;br&gt;
+链接: &lt;a class=&#34;link&#34; href=&#34;https://pan.baidu.com/s/19aqOB7iBvXN9olJDZKwkjg?pwd=qpk3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://pan.baidu.com/s/19aqOB7iBvXN9olJDZKwkjg?pwd=qpk3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;123云盘&lt;/strong&gt;&lt;br&gt;
+链接: &lt;a class=&#34;link&#34; href=&#34;https://www.123pan.com/s/QCF9-8yWTd.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.123pan.com/s/QCF9-8yWTd.html&lt;/a&gt;&lt;br&gt;
+提取码：DrnB&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OneDrive商业版&lt;/strong&gt;&lt;br&gt;
+链接：https://xmdlz-my.sharepoint.com/:f:/p/xmdlz_vip/Es7y5_IPGR9PuhMXZoYKT-gBbDXt7Yo_voEEYFCBznCutw?e=Sw1YQ8&lt;br&gt;
+密码：TjptvEgWRyZidYgjCZw0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;文件信息&#34;&gt;文件信息
+&lt;/h3&gt;&lt;p&gt;文件名：GNS3.VM.VMware.Workstation.2.2.45.ova
+大小：57572920832字节
+MD5: 20c6aa8778ef84c08b5f9857469ac896
+SHA1: a67e4a41acdec8802307dfa0490c5a1adf447db2
+SHA256: 70bb6c738570ca6db011c003938cd8cde6ccf8ad11a48493c587234218307c2e&lt;/p&gt;
+&lt;h2 id=&#34;使用vmware导入gns3-vm&#34;&gt;使用VMware导入GNS3 VM
+&lt;/h2&gt;&lt;h3 id=&#34;下载gns3懒人版&#34;&gt;下载GNS3懒人版
+&lt;/h3&gt;&lt;p&gt;这里我使用的是作者提供的百度网盘中的链接&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113001638655.png&#34;
+	width=&#34;916&#34;
+	height=&#34;417&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113001638655_hu17131537140130708161.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113001638655_hu9404566724556564499.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;GNS3中的文件&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;219&#34;
+		data-flex-basis=&#34;527px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;导入gns3-vm&#34;&gt;导入&lt;code&gt;GNS3 VM&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;前提是得装好&lt;code&gt;VMwate Workstation Pro&lt;/code&gt;，直接双击打开&lt;code&gt;GNS3.VM.VMware.Workstation.2.2.45.ova&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003139231.png&#34;
+	width=&#34;828&#34;
+	height=&#34;168&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003139231_hu8639064436037700974.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003139231_hu6446889011451048829.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20241113003139231&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;492&#34;
+		data-flex-basis=&#34;1182px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003316264.png&#34;
+	width=&#34;1106&#34;
+	height=&#34;388&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003316264_hu11482283939128445835.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003316264_hu9521922466709605014.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;填写英文名称，会自动生成默认路径，亦可更改路径&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;285&#34;
+		data-flex-basis=&#34;684px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003444382.png&#34;
+	width=&#34;745&#34;
+	height=&#34;218&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003444382_hu8544343687356957882.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113003444382_hu4418273629343985485.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;点击确认后开始导入GNS3 VM&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;341&#34;
+		data-flex-basis=&#34;820px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004639962.png&#34;
+	width=&#34;1221&#34;
+	height=&#34;648&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004639962_hu103920260970434358.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004639962_hu15730112731619061834.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;GNS VM导入完成&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;452px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;打开gns3-vm&#34;&gt;打开GNS3 VM
+&lt;/h3&gt;&lt;p&gt;如果虚拟机正常开启并获取到IP，请保持打开状态继续下一步操作。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004826066.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;600&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004826066_hu9979673713461867894.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004826066_hu5317842917123893990.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;点击Power On打开GNS3 VM&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;⚠️这里可能存在导入成功后，打开GNS3 VM获取不到IP地址。可能是&lt;code&gt;VMware DHCP Service&lt;/code&gt;服务没有打开&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004257856.png&#34;
+	width=&#34;1245&#34;
+	height=&#34;731&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004257856_hu2240009375426335826.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113004257856_hu4242487348587627798.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20241113004257856&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;408px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装gns3-2245-all-in-oneexe&#34;&gt;安装&lt;code&gt;GNS3-2.2.45-all-in-one.exe&lt;/code&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;准备工作&#34;&gt;准备工作
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113005635705.png&#34;
+	width=&#34;728&#34;
+	height=&#34;211&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113005635705_hu17030524996277635189.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113005635705_hu5229459640463288203.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;按照提示安装即可&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;345&#34;
+		data-flex-basis=&#34;828px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;双击安装&#34;&gt;双击安装
+&lt;/h3&gt;&lt;p&gt;无特殊需求，即可按照默认配置依序安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113005315222.png&#34;
+	width=&#34;833&#34;
+	height=&#34;549&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113005315222_hu275505934442559562.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113005315222_hu14815112052086089590.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;双击安装GNS3-2.2.45-all-in-one.exe&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;安装完成后打开GNS3&lt;/p&gt;
+&lt;p&gt;虚拟机GNS3 VM与GNS3版本必须保持一致，此教程使用&lt;code&gt;GNS3-2.2.45&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;根据&lt;code&gt;Setup Wizard&lt;/code&gt;提示，选择第三个，点击下一步&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113010801976.png&#34;
+	width=&#34;924&#34;
+	height=&#34;447&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113010801976_hu13734566668882330641.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113010801976_hu8703152835948124341.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;作者演示视频截图&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;206&#34;
+		data-flex-basis=&#34;496px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;将虚拟机中获取的IP地址和端口号，依次输入。并取消&lt;code&gt;Enable authentication&lt;/code&gt;的勾选。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113010510802.png&#34;
+	width=&#34;525&#34;
+	height=&#34;392&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113010510802_hu17829445731420805188.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113010510802_hu11101427416374416857.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;输入虚拟机中生成的IP和端口&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;321px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;稍等一会就会出现这个，点击下面的Finish就完成了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113011652728.png&#34;
+	width=&#34;1327&#34;
+	height=&#34;621&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113011652728_hu16437728555832304347.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113011652728_hu15303875548569810069.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20241113011652728&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;512px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113011825413.png&#34;
+	width=&#34;1191&#34;
+	height=&#34;682&#34;
+	srcset=&#34;http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113011825413_hu535612410844677639.png 480w, http://ranch007.github.io/p/gns3%E6%87%92%E4%BA%BA%E7%89%882.2.45%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/assets/image-20241113011825413_hu9361813705885509244.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;点开右侧栏倒数第二个按钮就可以看见集成的所有镜像&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;174&#34;
+		data-flex-basis=&#34;419px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;再次感谢“熄灭的蜡烛”大大的制作与分享，让我们用上集成般的GNS3！👏&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录
+&lt;/h2&gt;&lt;h3 id=&#34;参考文献&#34;&gt;参考文献
+&lt;/h3&gt;&lt;p&gt;《&lt;a class=&#34;link&#34; href=&#34;https://www.emulatedlab.com/thread-1561-1-1.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GNS3懒人版-2.2.45&lt;/a&gt;》&lt;/p&gt;
+&lt;p&gt;《&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1fi4y1r7Tb/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GNS3懒人版入门视频教程&lt;/a&gt;》&lt;/p&gt;
+&lt;h3 id=&#34;版权信息&#34;&gt;版权信息
+&lt;/h3&gt;&lt;p&gt;本文原载于 &lt;a class=&#34;link&#34; href=&#34;https://ranch007.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Ranch&amp;rsquo;s Blog&lt;/a&gt;，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>【HCIA 路由与交换 Wakin 谢Sir】TCP/IP网络模型</title>
         <link>http://ranch007.github.io/p/hcia-%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2-wakin-%E8%B0%A2sirtcp/ip%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Mon, 11 Nov 2024 22:05:23 +0800</pubDate>
