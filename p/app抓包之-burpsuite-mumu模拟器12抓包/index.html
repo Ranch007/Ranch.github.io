@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 环境准备 调试工具 ADB 是 Android SDK 中的一个工具，可以直接操作管理 Android 模拟器或者真实的 Android 设备。\nOpenSSL是一个功能丰富且开源的安全工具箱。\n">
+<title>APP抓包之 Burpsuite&#43;MuMu模拟器12抓包</title>
+
+<link rel='canonical' href='http://ranch007.github.io/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/'>
+
+<link rel="stylesheet" href="/scss/style.min.919a9c8b716d1a89527eb9f90b0c326d3d670e14c08afc0efe9e988ee056272c.css"><meta property='og:title' content="APP抓包之 Burpsuite+MuMu模拟器12抓包">
+<meta property='og:description' content=" 环境准备 调试工具 ADB 是 Android SDK 中的一个工具，可以直接操作管理 Android 模拟器或者真实的 Android 设备。\nOpenSSL是一个功能丰富且开源的安全工具箱。\n">
+<meta property='og:url' content='http://ranch007.github.io/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/'>
+<meta property='og:site_name' content='Ranch&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='环境' /><meta property='article:published_time' content='2024-11-19T12:32:00&#43;08:00'/><meta property='article:modified_time' content='2024-11-19T13:44:49&#43;08:00'/><meta property='og:image' content='http://ranch007.github.io/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/bp&#43;mumu.png' />
+<meta name="twitter:title" content="APP抓包之 Burpsuite+MuMu模拟器12抓包">
+<meta name="twitter:description" content=" 环境准备 调试工具 ADB 是 Android SDK 中的一个工具，可以直接操作管理 Android 模拟器或者真实的 Android 设备。\nOpenSSL是一个功能丰富且开源的安全工具箱。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://ranch007.github.io/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/bp&#43;mumu.png' />
+    <link rel="shortcut icon" href="/favcion.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="https://github.com/Ranch007">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu45785650040229606.png" width="300"
+                            height="309" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"><span>Ranch</span></a></h1>
+            <h2 class="site-description">知识面决定攻击面<br>知识链决定攻击链</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Ranch007'
+                        target="_blank"
+                        title="Ranch&#39;s GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:zhao11345lin07@163.com'
+                        target="_blank"
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='/index.xml'
+                        target="_blank"
+                        title="RSS"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E7%95%99%E8%A8%80/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-messages" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
+  <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
+</svg>
+
+
+
+                
+                <span>留言</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun-high" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" />
+  <path d="M6.343 17.657l-1.414 1.414" />
+  <path d="M6.343 6.343l-1.414 -1.414" />
+  <path d="M17.657 6.343l1.414 -1.414" />
+  <path d="M17.657 17.657l1.414 1.414" />
+  <path d="M4 12h-2" />
+  <path d="M12 4v-2" />
+  <path d="M20 12h2" />
+  <path d="M12 20v2" />
+</svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+  <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+  <path d="M19 11h2m-1 -1v2" />
+</svg>
+                        <span>背景模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#环境准备">环境准备</a>
+      <ol>
+        <li><a href="#调试工具">调试工具</a>
+          <ol>
+            <li><a href="#检查-adb">检查 adb</a></li>
+            <li><a href="#检查-openssl">检查 OpenSSL</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#下载证书">下载证书</a></li>
+    <li><a href="#进行调试">进行调试</a>
+      <ol>
+        <li><a href="#重命名证书">重命名证书</a></li>
+        <li><a href="#配置mumu模拟器">配置MuMu模拟器</a>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+        <li><a href="#使用-adb-连接模拟器">使用 adb 连接模拟器</a></li>
+      </ol>
+    </li>
+    <li><a href="#尝试抓包">尝试抓包</a></li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#参考文献">参考文献</a></li>
+        <li><a href="#版权信息">版权信息</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/">
+                <img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/bp&#43;mumu_hu13031142105885578075.png"
+                        srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/bp&#43;mumu_hu13031142105885578075.png 800w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/bp&#43;mumu_hu14513921117452693264.png 1600w"
+                        width="800" 
+                        height="400" 
+                        loading="lazy"
+                        alt="Featured image of post APP抓包之 Burpsuite&#43;MuMu模拟器12抓包" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%91%E5%AE%89%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                网安笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/">APP抓包之 Burpsuite&#43;MuMu模拟器12抓包</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-11-19</time>
+            </div>
+        <div>
+            <section class="article-lastmod">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
+                    <time class="article-lastmod">2024-11-19T13:44</time>
+            </section>
+        </div>
+            <div>
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
+                <time class="article-words">
+                    846 字
+                </time>
+            </div>
+        
+      
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <hr>
+<h2 id="环境准备">环境准备
+</h2><p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119123929499.png"
+	width="846"
+	height="255"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119123929499_hu17690882921408349467.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119123929499_hu14755856255671879432.png 1024w"
+	loading="lazy"
+	
+		alt="win11"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="331"
+		data-flex-basis="796px"
+	
+></p>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119124354117.png"
+	width="804"
+	height="404"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119124354117_hu13459328869830641292.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119124354117_hu6630203022506150178.png 1024w"
+	loading="lazy"
+	
+		alt="BurpSuite"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="477px"
+	
+></p>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119124219267.png"
+	width="610"
+	height="414"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119124219267_hu15739381319306944429.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119124219267_hu7750060052371948313.png 1024w"
+	loading="lazy"
+	
+		alt="mumu模拟器12"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="353px"
+	
+></p>
+<h3 id="调试工具">调试工具
+</h3><blockquote>
+<p><a class="link" href="https://blog.csdn.net/x2584179909/article/details/108319973"  target="_blank" rel="noopener"
+    >ADB 是 Android SDK 中的一个工具，可以直接操作管理 Android 模拟器或者真实的 Android 设备。</a></p>
+<p><a class="link" href="https://blog.csdn.net/zyhse/article/details/108186278"  target="_blank" rel="noopener"
+    >OpenSSL是一个功能丰富且开源的安全工具箱。</a></p>
+</blockquote>
+<h4 id="检查-adb">检查 adb
+</h4><p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119120016133.png"
+	width="845"
+	height="133"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119120016133_hu13469743049575708492.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119120016133_hu15738845574497652623.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119120016133"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="635"
+		data-flex-basis="1524px"
+	
+></p>
+<h4 id="检查-openssl">检查 OpenSSL
+</h4><p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125118101.png"
+	width="1092"
+	height="62"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125118101_hu6209732161419546448.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125118101_hu4367633244806137685.png 1024w"
+	loading="lazy"
+	
+		alt="image-20241119125118101"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1761"
+		data-flex-basis="4227px"
+	
+></p>
+<h2 id="下载证书">下载证书
+</h2><p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125447288.png"
+	width="990"
+	height="537"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125447288_hu913537199866956566.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125447288_hu4209746717301785711.png 1024w"
+	loading="lazy"
+	
+		alt="根据出网网卡选择需要抓包的IP"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="184"
+		data-flex-basis="442px"
+	
+></p>
+<ul>
+<li>访问你的IP+端口即<code>ip:8088</code>导出CA证书，点击右上角下载</li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125703566.png"
+	width="1278"
+	height="997"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125703566_hu5963919056625297390.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119125703566_hu15171926428496986880.png 1024w"
+	loading="lazy"
+	
+		alt="下载CA证书"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="307px"
+	
+></p>
+<h2 id="进行调试">进行调试
+</h2><h3 id="重命名证书">重命名证书
+</h3><p>在保存ca证书的文件夹右键打开终端或者箭头导航栏输入<code>cmd</code>，并输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">　openssl x509 -subject_hash_old -in {证书全名带后缀}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119130347588.png"
+	width="1500"
+	height="761"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119130347588_hu15978201226335802218.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119130347588_hu3925237098685606320.png 1024w"
+	loading="lazy"
+	
+		alt="image-20241119130347588"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="473px"
+	
+></p>
+<p>生成一串字符串，复制红框保存下来，并把证书名字改为这个，后缀改为0，如下所示：</p>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119131117734.png"
+	width="867"
+	height="59"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119131117734_hu2220480731071901262.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119131117734_hu9116399736279572277.png 1024w"
+	loading="lazy"
+	
+		alt="image-20241119131117734"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1469"
+		data-flex-basis="3526px"
+	
+></p>
+<h3 id="配置mumu模拟器">配置MuMu模拟器
+</h3><ul>
+<li>打开磁盘可写以及Root权限，重启模拟器</li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119131701019.png"
+	width="901"
+	height="580"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119131701019_hu4067366488158565491.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119131701019_hu6776197650893036723.png 1024w"
+	loading="lazy"
+	
+		alt="image-20241119131701019"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="155"
+		data-flex-basis="372px"
+	
+></p>
+<ul>
+<li>
+<h5 id="找到-adb-调试端口">找到 adb 调试端口
+</h5></li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119115016803.png"
+	width="708"
+	height="504"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119115016803_hu4514590078001298805.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119115016803_hu7860987040712479119.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119115016803"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="140"
+		data-flex-basis="337px"
+	
+></p>
+<h3 id="使用-adb-连接模拟器">使用 adb 连接模拟器
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">adb devices：查看当前连接的设备，已连接的设备会显示出来
+</span></span><span class="line"><span class="cl">adb connect：连接adb调试端口
+</span></span><span class="line"><span class="cl">adb push &lt;本地路径\文件或文件夹&gt; &lt;手机端路径&gt;：把本地(pc机)的文件或文件夹复制到设备(手机)
+</span></span><span class="line"><span class="cl">adb shell：登录设备 shell，该命令将登录设备的shell（内核），登录shell后，可以使用 cd，ls，rm 等Linux命令
+</span></span><span class="line"><span class="cl">su：提升为root权限（linux命令）
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119120735030.png"
+	width="1473"
+	height="578"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119120735030_hu4478228237840418240.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119120735030_hu10635002955012679830.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119120735030"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="254"
+		data-flex-basis="611px"
+	
+></p>
+<ul>
+<li>使用<code>cd /sdcard/;ls</code>命令，查看刚刚上传的</li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119121221236.png"
+	width="1312"
+	height="95"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119121221236_hu3927213331141642738.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119121221236_hu1316377153888080772.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119121221236"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1381"
+		data-flex-basis="3314px"
+	
+></p>
+<ul>
+<li>将该文件移动到<code>/system/etc/security/cacerts/</code>目录下</li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119121446224.png"
+	width="857"
+	height="53"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119121446224_hu12405306605826803496.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119121446224_hu7202748308874276718.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119121446224"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1616"
+		data-flex-basis="3880px"
+	
+></p>
+<ul>
+<li>进入<code>/system/etc/security/cacerts/</code>目录，查看文件是否移动成功；并进行赋权和更改用户组。</li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119122214557.png"
+	width="892"
+	height="194"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119122214557_hu8777289318187404308.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119122214557_hu9922646080567192894.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119122214557"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="459"
+		data-flex-basis="1103px"
+	
+></p>
+<ul>
+<li>重新启动MuMu模拟器，配置网络代理，访问浏览器</li>
+</ul>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119133649018.png"
+	width="950"
+	height="573"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119133649018_hu10282274304703096875.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/image-20241119133649018_hu9771381332481952503.png 1024w"
+	loading="lazy"
+	
+		alt="image-20241119133649018"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="397px"
+	
+></p>
+<h2 id="尝试抓包">尝试抓包
+</h2><p>证书安装完成，此时抓包不再显示证书无效</p>
+<p><img src="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119122619976.png"
+	width="1584"
+	height="878"
+	srcset="/p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119122619976_hu13829193962725696585.png 480w, /p/app%E6%8A%93%E5%8C%85%E4%B9%8B-burpsuite-mumu%E6%A8%A1%E6%8B%9F%E5%99%A812%E6%8A%93%E5%8C%85/assets/file-20241119122619976_hu11166302815748957223.png 1024w"
+	loading="lazy"
+	
+		alt="file-20241119122619976"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></p>
+<h2 id="附录">附录
+</h2><h3 id="参考文献">参考文献
+</h3><ul>
+<li>《<a class="link" href="https://blog.csdn.net/weixin_73399382/article/details/140844698"  target="_blank" rel="noopener"
+    >APP抓包之 Burpsuite+MuMu模拟器12抓包_mumu模拟器安装burp证书-CSDN博客</a>》</li>
+<li>《<a class="link" href="https://blog.csdn.net/x2584179909/article/details/108319973"  target="_blank" rel="noopener"
+    >windows下载安装adb（极其简单）_adb工具下载windows-CSDN博客</a>》</li>
+<li>《<a class="link" href="https://blog.csdn.net/zyhse/article/details/108186278"  target="_blank" rel="noopener"
+    >环境篇-Windows下安装OpenSSL_opensslwin64下哪个-CSDN博客</a>》</li>
+<li>《<a class="link" href="https://blog.csdn.net/ZL_1618/article/details/132356781?ops_request_misc=%7B%22request%5Fid%22%3A%228766e0ec2d01b6e83232eb11d4a10602%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=8766e0ec2d01b6e83232eb11d4a10602&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-132356781-null-null.142%5ev100%5epc_search_result_base3&amp;utm_term=adb&amp;spm=1018.2226.3001.4187"  target="_blank" rel="noopener"
+    >ADB安装及使用详解（非常详细）从零基础入门到精通，看完这一篇就够了__adb工具-CSDN博客</a>》</li>
+</ul>
+<h3 id="版权信息">版权信息
+</h3><p>本文原载于 <a class="link" href="https://ranch007.github.io"  target="_blank" rel="noopener"
+    >Ranch&rsquo;s Blog</a>，遵循 CC BY-NC-SA 4.0 协议，复制请保留原文出处。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%8E%AF%E5%A2%83/">环境</a>
+        
+    </section>
+
+    
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>根据CC BY-NC-SA 4.0协议授权，转载请在留言板告知🔔</span>
+    </section>
+    <div>
+            <section class="article-lastmod">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9.972 8.948c.32 .034 .644 .052 .972 .052" /><path d="M12 7v5l2 2" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
+                    <time class="article-lastmod">
+                        最后更新于 2024-11-19T13:44</time>
+            </section>
+        </div></footer>
+
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%8E%8C%E6%8F%A1-docker%E9%AD%94%E6%B3%95windows-11-%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E6%8E%8C%E6%8F%A1-docker%E9%AD%94%E6%B3%95windows-11-%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%AE%B9%E5%99%A8%E9%83%A8%E7%BD%B2%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97/docker.a2f46e02ea8f7f8af6c6989687bd6b52_hu12654524353342200562.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 掌握 Docker魔法：Windows 11 平台上的完美容器部署终极指南"
+                        data-key="掌握 Docker魔法：Windows 11 平台上的完美容器部署终极指南" 
+                        data-hash="md5-ovRuAuqPf4r2xpiWh71rUg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">掌握 Docker魔法：Windows 11 平台上的完美容器部署终极指南</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84wsl2%E6%95%99%E7%A8%8Bwindows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84wsl2%E6%95%99%E7%A8%8Bwindows%E4%B8%8A%E7%9A%84linux%E5%AD%90%E7%B3%BB%E7%BB%9F/wsl.0fce4b9d24e532b4b61d32e30ed03b1e_hu10032566824105795002.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 超详细的wsl2教程：windows上的linux子系统"
+                        data-key="超详细的wsl2教程：windows上的linux子系统" 
+                        data-hash="md5-D85LnSTlMrS2HTLjDtA7Hg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">超详细的wsl2教程：windows上的linux子系统</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">
+        
+        
+            <div class="article-image">
+                <img src="/p/jenv-for-windows-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/jenv-for-windows.357ede4b61378889ebd081ec2b0de94b_hu2330274112866823546.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Win11使用JEnv管理多版本jdk"
+                        data-key="JEnv-for-Windows 安装与配置完全指南" 
+                        data-hash="md5-NX7eS2E3iInr0IHsKw3pSw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Win11使用JEnv管理多版本jdk</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/apache-activemq-openwire-%E5%8D%8F%E8%AE%AE%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-rcecve-2023-46604/">
+        
+        
+            <div class="article-image">
+                <img src="/p/apache-activemq-openwire-%E5%8D%8F%E8%AE%AE%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-rcecve-2023-46604/activemq.b3a08c4b1c1a6390f8b8951c157b4287_hu8385097039704380733.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Apache ActiveMQ OpenWire 协议反序列化 RCE（CVE 2023 46604）"
+                        data-key="Apache ActiveMQ OpenWire 协议反序列化 RCE（CVE 2023 46604）" 
+                        data-hash="md5-s6CMSxwaY5D4uJUcFXtChw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Apache ActiveMQ OpenWire 协议反序列化 RCE（CVE 2023 46604）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/">
+        
+        
+            <div class="article-image">
+                <img src="/p/apache-activemq-jolokia-%E5%90%8E%E5%8F%B0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9Ecve-2022-41678/activemq.b3a08c4b1c1a6390f8b8951c157b4287_hu8385097039704380733.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Apache ActiveMQ Jolokia 后台远程代码执行漏洞（CVE 2022 41678）"
+                        data-key="Apache ActiveMQ Jolokia 后台远程代码执行漏洞（CVE 2022 41678）" 
+                        data-hash="md5-s6CMSxwaY5D4uJUcFXtChw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Apache ActiveMQ Jolokia 后台远程代码执行漏洞（CVE 2022 41678）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="Ranch007/Message-Boards"
+    data-repo-id="R_kgDONBh4yw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDONBh4y84CjbwV"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    
+    <section class="copyright">
+        &copy; 
+        
+        2024 Ranch&#39;s Blog
+    </section>
+
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script language="javascript"> 
+        var now = new Date();
+        function createtime(){
+            
+            now.setTime(now.getTime() + 250);
+            var grt = new Date("2024/10/15 00:00:00"); 
+            var days = (now - grt) / 1000 / 60 / 60 / 24;
+            var dnum = Math.floor(days);
+            var hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            var hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            var minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            var mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            var seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            var snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+    
+            document.getElementById("timeDate").innerHTML = `本站已稳定运行<span style="color: lightblue;">${dnum}</span> 天`;
+            document.getElementById("timeDate").style.color = "gray"; 
+            document.getElementById("times").innerHTML = `<span style="color: lightblue;">${hnum}</span> 小时 <span style="color: lightblue;">${mnum}</span> 分 <span style="color: lightblue;">${snum}</span> 秒`;
+            document.getElementById("times").style.color = "gray"; 
+        }
+        setInterval(createtime, 250); 
+    </script>
+
+    
+    <section class="powerby">
+        
+            🤝本博客仅用于记录个人学习和成长。所有内容仅为个人观点，不代表任何团体或组织的立场。如有疑问，欢迎联系！ <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+</footer>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script src="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://npm.elemecdn.com/nprogress@0.2.0/nprogress.css" crossorigin="anonymous" />
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+
+
+    </body>
+</html>
